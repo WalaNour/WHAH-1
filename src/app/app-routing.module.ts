@@ -55,8 +55,8 @@ const routes: Routes = [
   { path : 'post' , component : PostComponent},
   { path : 'admin/delete' , component : AdminPostsComponent},
   { path: 'editTc', component : TrainingCenterEditComponent},
-  { path: 'post/company', component : PostComapnyComponent}
-
+  { path: 'post/company', component : PostComapnyComponent},
+  { path: 'post/center', component : PostCenterComponent}
 ];
 
 @NgModule({
