@@ -36,6 +36,7 @@ import { PostComponent } from './post/post.component';
 import { AdminPostsComponent } from './admin-posts/admin-posts.component';
 import { TrainingCenterEditComponent } from './training-center-edit/training-center-edit.component';
 import { TcPostsComponent } from './tc-posts/tc-posts.component';
+import { BanUsersComponent } from './ban-users/ban-users.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { TcPostsComponent } from './tc-posts/tc-posts.component';
     AdminPostsComponent,
     TrainingCenterEditComponent,
     TcPostsComponent,
+    BanUsersComponent,
   ],
   imports: [
     BrowserModule,

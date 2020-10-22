@@ -148,5 +148,28 @@ export class HttpService {
   httpgetTcPosts(obj){
     return this.http.post(this.ROOT_URL  + '/api/users/postsTc' , obj)
   }
+  httpdeletePostTc(obj) {
+    console.log(obj)
+    return this.http.post(this.ROOT_URL + "/api/posts/deleteTc", obj);
+  }
+  httpGetStudents() {
+    return this.http.get(this.ROOT_URL + "/api/students");
+  }
+  httpGetCompanies() {
+    return this.http.get(this.ROOT_URL + "/api/companies");
+  }
+  httpGetTrainingCenter() {
+    return this.http.get(this.ROOT_URL + "/api/trainingCenters");
+  }
+
+  httpbanstudent(obj) {
+    return this.http.post(this.ROOT_URL + "/api/users/ban/student", obj);
+  }
+  httpbancompany(obj) {
+    return this.http.post(this.ROOT_URL + "/api/users/ban/company", obj);
+  }
+  httpbancenter(obj) {
+    return this.http.post(this.ROOT_URL + "/api/users/ban/training", obj);
+  }
 }
 

@@ -76,11 +76,14 @@
             role="tabpanel"
             aria-labelledby="home-tab"
           >
-          
+         
             <div class="row" >
-              <div class="col-md-6" *ngFor = "let element of userPosts">
+                
+              <div class="col-md-6 father" *ngFor = "let element of userPosts">
                   <label>post</label>
                 <p>{{this.element?.title}}</p>
+                <button (click)="delete(this.element.id)">delete</button>
+            
               </div>
             </div>
             
