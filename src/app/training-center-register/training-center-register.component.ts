@@ -25,7 +25,6 @@ export class TrainingCenterRegisterComponent implements OnInit {
   ) {
     this.obj = {
       email: email,
-
       owner: owner,
       trainingOptions: trainingOptions,
       numberOfStudent: numberOfStudent,

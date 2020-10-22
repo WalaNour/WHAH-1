@@ -35,6 +35,7 @@ import { FeedComponent } from './feed/feed.component';
 import { PostComponent } from './post/post.component';
 import { AdminPostsComponent } from './admin-posts/admin-posts.component';
 import { TrainingCenterEditComponent } from './training-center-edit/training-center-edit.component';
+import { TcPostsComponent } from './tc-posts/tc-posts.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { TrainingCenterEditComponent } from './training-center-edit/training-cen
     PostComponent,
     AdminPostsComponent,
     TrainingCenterEditComponent,
+    TcPostsComponent,
   ],
   imports: [
     BrowserModule,
