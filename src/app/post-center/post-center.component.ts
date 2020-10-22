@@ -19,10 +19,10 @@ export class PostCenterComponent implements OnInit {
       title:title,
       description:description,
       image:image,
-      owner:"halim",
+      owner: this.local.tsInfo.owner,
       rate:11,
       salary:salary,
-      contact:"halim",
+      contact:this.local.tsInfo.email,
     }
     this._http.httpAddPostCenter(obj).subscribe((data) => {
       console.log(data)

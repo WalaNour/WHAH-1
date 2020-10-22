@@ -106,15 +106,14 @@ app.post("/api/users/registerCompany", (req, res) => {
 ////////////////////////////// Registration TRAINING CENTER /////////////////////////////////////
 
 app.post("/api/users/registerTrainingCenter", (req, res) => {
+  console.log("this is logo " , req.body.logo)
   var registerArray = [
     req.body.email,
     req.body.owner,
     req.body.trainingOptions,
     req.body.numberOfStudent,
     req.body.location,
-
     req.body.website,
-
     req.body.logo,
     req.body.about,
     "false",
@@ -690,4 +689,30 @@ app.post('/api/center/update', (req, res)=>{
   })
 })
 
+app.post("/api/users/postsTc", (req, res) => {
+  var array = [req.body.owner];
+  db.getPostsOfTc(array, (err, data) => {
+    if (err) throw err;
+    res.send(data);
+  });
+});
+app.post('/api/update',(req,res)=>{
+ var arr=req.body;
+ var obj1=arr[0];
+ var obj2=arr[1];
+var arr1=Object.values(obj1)
+var arr2=Object.values(obj2)
+console.log(arr1,arr2)
+for(var i=0;i<arr1.length;i++){
+  if(!arr1[i]){
+    arr1[i]=arr2[i];
+  }
+  
+}
+console.log (arr1);
+db.updatePost(arr1, (err, data) => {
+  err ? console.log(err) : res.send(data);
+});
+ 
+})
 app.listen(port, () => console.log(`server is listening on port ${port}`));

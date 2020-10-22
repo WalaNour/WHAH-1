@@ -145,5 +145,11 @@ export class HttpService {
   savePosts(obj){
     return this.http.post(this.ROOT_URL  + '/api/addPosts' , obj)
   }
+  httpgetTcPosts(obj){
+    return this.http.post(this.ROOT_URL  + '/api/users/postsTc' , obj)
+  }
+  update(array){
+    return this.http.post(this.ROOT_URL+'/api/update',array);
+  }
 }
 

@@ -384,7 +384,25 @@ const updateTc = (username, obj, callback) => {
     });
   }
 };
+
+const getPostsOfTc = (arr,callback) => {
+  let sql = `select * from post WHERE owner = ?  `;
+  connection.query(sql, arr , (err, data) => {
+    if (err) throw callback(err, null);
+    callback(null, data);
+  });
+};
+const  updatePost= (arr, callback) => {
+  let sql =
+    "UPDATE post SET  title = ? , description= ? ,   image = ? , salary = ? ,  contact = ?  WHERE id = ? ";
+  connection.query(sql, arr, (err, data) => {
+    err ? callback(err, null) : callback(null, data);
+  });
+};
+
 module.exports = {
+  updatePost,
+  getPostsOfTc,
   updateTc,
   savePosts,
   deletePost,
