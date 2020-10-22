@@ -1,0 +1,23 @@
+<div class = "grid-container">
+    <h2>company posts</h2>
+    <div *ngFor = "let element of compPosts" class="border">
+        <h4>title</h4>
+        <h6>{{this.element?.title}}</h6>
+        <h4>logo</h4>
+        <img src ={{this.element?.image}} />
+        <h4>created at</h4>
+        <h6>{{this.element?.created_at}}</h6>
+        <h4>type</h4>
+        <h6>{{this.element?.type}}</h6>
+        <h4>description</h4>
+        <h6>{{this.element?.description}}</h6>
+        <h4>salary</h4>
+        <h6>{{this.element?.salary}}</h6>
+        <h4>rate</h4>
+        <h6>{{this.element?.rate}}</h6>
+        <h4>contact</h4>
+        <h6>{{this.element?.contact}}</h6>
+        <button (click) = "editPost(this.element)">update</button>
+        <button (click) = "deletePost(this.element?.id)">delete</button>
+    </div>
+</div>

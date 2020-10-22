@@ -690,4 +690,42 @@ app.post('/api/center/update', (req, res)=>{
   })
 })
 
+//get the company posts by the owner name
+
+app.post('/api/sreachByOwner', (req, res)=>{
+  db.postsByOwner(req.body.owner, (err, data)=>{
+    err? console.log(err) :res.send(data) 
+  })
+
+})
+
+  //delete posts inside company profile using owner
+app.post('/api/rmCompanyPosts', (req, res)=>{
+  console.log('id ==== >' ,req.body)
+  db.delCompPosts(req.body.id, (err, data)=>{
+    err? console.log(err) :res.send(data) 
+  })
+}) 
+
+  //find company posts by id before modify
+app.post('/api/upCompanyPost', (req, res)=>{
+  const id = req.body['2'];
+
+  var obj = {}
+  for(var i = 0 ; i < req.body[0].length ; i++){
+    obj[req.body[1][i]] = req.body[0][i]
+  }
+  for(var key in obj){
+    if(!obj[key]){
+      delete obj[key]
+    }
+  }
+  console.log(obj)
+  db.updateOnePost(id, obj,(err, data)=>{
+    err? console.log(err) :console.log(data) 
+  })
+})
+
+
+
 app.listen(port, () => console.log(`server is listening on port ${port}`));

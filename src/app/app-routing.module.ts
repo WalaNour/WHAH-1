@@ -27,6 +27,8 @@ import { PostComponent } from './post/post.component';
 import { AdminPostsComponent } from './admin-posts/admin-posts.component';
 import { TrainingCenterEditComponent } from './training-center-edit/training-center-edit.component';
 import { PostComapnyComponent } from './post-comapny/post-comapny.component';
+import { PostsCompanyProfileComponent } from './posts-company-profile/posts-company-profile.component'
+import { UpdateCompanyPostsComponent } from './update-company-posts/update-company-posts.component'
 
 const routes: Routes = [
   { path: 'register/student', component: VerficationComponent },
@@ -55,8 +57,9 @@ const routes: Routes = [
   { path : 'post' , component : PostComponent},
   { path : 'admin/delete' , component : AdminPostsComponent},
   { path: 'editTc', component : TrainingCenterEditComponent},
-  { path: 'post/company', component : PostComapnyComponent}
-
+  { path: 'post/company', component : PostComapnyComponent},
+  { path : 'companyOwnPost', component: PostsCompanyProfileComponent},
+  { path : 'updateCompPost', component: UpdateCompanyPostsComponent}
 ];
 
 @NgModule({

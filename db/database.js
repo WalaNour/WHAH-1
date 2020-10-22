@@ -384,7 +384,54 @@ const updateTc = (username, obj, callback) => {
     });
   }
 };
+
+//select posts by owner to render in company profile
+
+const postsByOwner = (owner, callback) => {
+  let sql = `select * from post where owner = '${owner}'`;
+  connection.query(sql, (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+//delete posts inside company profile using owner
+const delCompPosts = (id, callback) =>{
+  let sql = `DELETE FROM post WHERE id = ${id}`
+  connection.query(sql, (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+  //update company posts by id before modify
+  const updateOnePost = (id, obj, callback) => {
+    var arr = Object.keys(obj);
+    var arr1 = Object.values(obj);
+    for (var i = 0; i < arr.length; i++) {
+      let sql = `UPDATE post SET ${arr[i]} = '${arr1[i]}' WHERE id = '${id}'`;
+      connection.query(sql, (err, data) => {
+        if (err) {
+          callback(err, null);
+        } else {
+          callback(null, data);
+        }
+      });
+    }
+  };
+
+
+
 module.exports = {
+  updateOnePost,
+  delCompPosts,
+  postsByOwner,
   updateTc,
   savePosts,
   deletePost,

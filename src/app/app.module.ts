@@ -35,6 +35,8 @@ import { FeedComponent } from './feed/feed.component';
 import { PostComponent } from './post/post.component';
 import { AdminPostsComponent } from './admin-posts/admin-posts.component';
 import { TrainingCenterEditComponent } from './training-center-edit/training-center-edit.component';
+import { PostsCompanyProfileComponent } from './posts-company-profile/posts-company-profile.component';
+import { UpdateCompanyPostsComponent } from './update-company-posts/update-company-posts.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +68,8 @@ import { TrainingCenterEditComponent } from './training-center-edit/training-cen
     PostComponent,
     AdminPostsComponent,
     TrainingCenterEditComponent,
+    PostsCompanyProfileComponent,
+    UpdateCompanyPostsComponent,
   ],
   imports: [
     BrowserModule,
