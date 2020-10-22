@@ -696,4 +696,64 @@ app.post("/api/users/postsTc", (req, res) => {
     res.send(data);
   });
 });
+
+app.post("/api/posts/deleteTc", (req, res) => {
+  var array = [
+    req.body.id,
+  ];
+  db.deletePostTc(array, (err, data) => {
+    err ? console.log(err) : res.send(data);
+  });
+}); 
+
+app.get("/api/students", (req, res) => {
+  db.getAllStudents((err, data) => {
+    if (err) throw err;
+    res.send(data);
+  });
+});
+
+app.get("/api/companies", (req, res) => {
+  db.getAllCompanies((err, data) => {
+    if (err) throw err;
+    res.send(data);
+  });
+});
+app.get("/api/trainingCenters", (req, res) => {
+  db.getAllTrainingCenters((err, data) => {
+    if (err) throw err;
+    res.send(data);
+  });
+});
+
+
+app.post("/api/users/ban/student", (req, res) => {
+  var array = [
+    req.body.id,
+  ];
+  db.banStudent(array, (err, data) => {
+    err ? console.log(err) : res.send(data);
+  });
+}); 
+
+app.post("/api/users/ban/company", (req, res) => {
+  var array = [
+    req.body.id,
+  ];
+  db.banCompany(array, (err, data) => {
+    err ? console.log(err) : res.send(data);
+  });
+}); 
+
+app.post("/api/users/ban/training", (req, res) => {
+  var array = [
+    req.body.id,
+  ];
+  db.banCenter(array, (err, data) => {
+    err ? console.log(err) : res.send(data);
+  });
+}); 
+
+
+
 app.listen(port, () => console.log(`server is listening on port ${port}`));

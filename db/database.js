@@ -392,7 +392,63 @@ const getPostsOfTc = (arr,callback) => {
     callback(null, data);
   });
 };
+////////////////////////////////////////////////////////////
+const getAllStudents = (callback) => {
+  let sql = `select * from students `;
+  connection.query(sql, (err, data) => {
+    if (err) throw callback(err, null);
+    callback(null, data);
+  });
+};
+
+const getAllCompanies = (callback) => {
+  let sql = `select * from companies `;
+  connection.query(sql, (err, data) => {
+    if (err) throw callback(err, null);
+    callback(null, data);
+  });
+};
+const getAllTrainingCenters = (callback) => {
+  let sql = `select * from trainingCenters `;
+  connection.query(sql, (err, data) => {
+    if (err) throw callback(err, null);
+    callback(null, data);
+  });
+};
+const deletePostTc = (arr, callback) => {
+  let sql = "DELETE FROM post WHERE id = ?";
+  connection.query(sql, arr, (err, data) => {
+    err ? callback(err, null) : callback(null, data);
+  });
+};
+
+const banStudent = (arr, callback) => {
+  let sql = "DELETE FROM student WHERE id = ?";
+  connection.query(sql, arr, (err, data) => {
+    err ? callback(err, null) : callback(null, data);
+  });
+};
+
+const banCompany = (arr, callback) => {
+  let sql = "DELETE FROM companies WHERE id = ?";
+  connection.query(sql, arr, (err, data) => {
+    err ? callback(err, null) : callback(null, data);
+  });
+};
+const banCenter = (arr, callback) => {
+  let sql = "DELETE FROM trainingCenters WHERE id = ?";
+  connection.query(sql, arr, (err, data) => {
+    err ? callback(err, null) : callback(null, data);
+  });
+};
 module.exports = {
+  banCenter,
+  banCompany,
+  banStudent,
+  getAllTrainingCenters,
+  getAllCompanies,
+  getAllStudents,
+  deletePostTc,
   getPostsOfTc,
   updateTc,
   savePosts,
