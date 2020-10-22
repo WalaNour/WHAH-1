@@ -106,15 +106,14 @@ app.post("/api/users/registerCompany", (req, res) => {
 ////////////////////////////// Registration TRAINING CENTER /////////////////////////////////////
 
 app.post("/api/users/registerTrainingCenter", (req, res) => {
+  console.log("this is logo " , req.body.logo)
   var registerArray = [
     req.body.email,
     req.body.owner,
     req.body.trainingOptions,
     req.body.numberOfStudent,
     req.body.location,
-
     req.body.website,
-
     req.body.logo,
     req.body.about,
     "false",
@@ -690,4 +689,11 @@ app.post('/api/center/update', (req, res)=>{
   })
 })
 
+app.post("/api/users/postsTc", (req, res) => {
+  var array = [req.body.owner];
+  db.getPostsOfTc(array, (err, data) => {
+    if (err) throw err;
+    res.send(data);
+  });
+});
 app.listen(port, () => console.log(`server is listening on port ${port}`));

@@ -27,6 +27,7 @@ import { PostComponent } from './post/post.component';
 import { AdminPostsComponent } from './admin-posts/admin-posts.component';
 import { TrainingCenterEditComponent } from './training-center-edit/training-center-edit.component';
 import { PostComapnyComponent } from './post-comapny/post-comapny.component';
+import { TcPostsComponent } from './tc-posts/tc-posts.component';
 
 const routes: Routes = [
   { path: 'register/student', component: VerficationComponent },
@@ -56,7 +57,9 @@ const routes: Routes = [
   { path : 'admin/delete' , component : AdminPostsComponent},
   { path: 'editTc', component : TrainingCenterEditComponent},
   { path: 'post/company', component : PostComapnyComponent},
-  { path: 'post/center', component : PostCenterComponent}
+  { path: 'post/center', component: PostCenterComponent },
+  { path: 'own/posts', component : TcPostsComponent}
+
 ];
 
 @NgModule({
