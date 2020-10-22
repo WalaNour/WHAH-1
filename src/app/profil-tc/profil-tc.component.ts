@@ -22,8 +22,8 @@ export class ProfilTcComponent implements OnInit{
       'token': userToken
     }
      this._http.tcProfil(obj).subscribe((res)=>{
-      this.userData = res[0]
-      console.log(this.userData)
+       this.userData = res[0]
+       this.local.tsInfo = { owner: this.userData.owner, email: this.userData.email }
     })
   }
   updateProfil(){
@@ -37,4 +37,7 @@ export class ProfilTcComponent implements OnInit{
       this.router.navigateByUrl('/resultSearch')
     })
   };
+  toPost() {
+    this.router.navigateByUrl('/post/center')
+  }
 }
