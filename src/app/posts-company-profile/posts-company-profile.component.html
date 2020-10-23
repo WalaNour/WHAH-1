@@ -17,7 +17,8 @@
         <h6>{{this.element?.rate}}</h6>
         <h4>contact</h4>
         <h6>{{this.element?.contact}}</h6>
-        <button (click) = "editPost(this.element)">update</button>
-        <button (click) = "deletePost(this.element?.id)">delete</button>
+        <button class="btn btn-primary" (click) = "editPost(this.element)">update</button>
+        <button class="btn btn-primary" (click) = "deletePost(this.element?.id)">delete</button>
     </div>
+    <button class="btn btn-primary" (click)= 'backToProfile()'>back to profile</button>
 </div>

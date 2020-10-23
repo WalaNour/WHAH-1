@@ -30,4 +30,7 @@ export class PostsCompanyProfileComponent implements OnInit {
       this.ngOnInit()
     })
   }
+  backToProfile(){
+    this.router.navigateByUrl('company/profile')
+  }
 }
