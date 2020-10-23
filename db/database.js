@@ -524,8 +524,97 @@ const acceptApp = (arr, callback) => {
 };
 
 
+
+
+const getCenterNumberOfPostsAvailble = (id, callback) => {
+  let sql = `select numberOfPostsAvaible from trainingCenters where id = '${id}'`;
+  connection.query(sql, (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+
+const updateNumberOfPosts = (arr, callback) => {
+  let sql = `UPDATE trainingCenters SET  numberOfPostsAvaible = ?   WHERE id = ? `;
+  connection.query(sql,arr, (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+const weeklydataSilver = (arr, callback) => {
+  let sql = `UPDATE trainingCenters SET  numberOfPostsAvaible = 3   WHERE memberShip = 'silver' `;
+  connection.query(sql,arr, (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+
+const weeklydataGold = (arr, callback) => {
+  let sql = `UPDATE trainingCenters SET  numberOfPostsAvaible = 5   WHERE memberShip = 'gold' `;
+  connection.query(sql,arr, (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+const weeklydataPlat = (arr, callback) => {
+  let sql = `UPDATE trainingCenters SET  numberOfPostsAvaible = 10   WHERE memberShip = 'plat' `;
+  connection.query(sql,arr, (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+const changeMembershipToPlat = (arr, callback) => {
+  let sql = `UPDATE trainingCenters SET  numberOfPostsAvaible = 10 , memberShip = 'plat'   WHERE name = ? `;
+  connection.query(sql,arr, (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+const changeMembershipToGold = (arr, callback) => {
+  let sql = `UPDATE trainingCenters SET  numberOfPostsAvaible = 5 , memberShip = 'Gold'   WHERE name = ? `;
+  connection.query(sql,arr, (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+
 module.exports = {
-  acceptApp,
+  changeMembershipToPlat,
+  changeMembershipToGold,
+  weeklydataPlat,
+  weeklydataGold,
+  weeklydataSilver,
+  updateNumberOfPosts,
+  getCenterNumberOfPostsAvailble,
+    acceptApp,
   deleteApp,
   getStudentApplication,
   StApply,

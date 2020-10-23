@@ -646,10 +646,19 @@ app.post("/api/posts/addPost", (req, res) => {
     req.body.salary,
     req.body.contact,
   ];
+  var array2 = [
+    req.body.newNumberOfPosts,
+    req.body.idCenter
+  ]
+
   db.addPost(array, (err, data) => {
-    err ? console.log(err) : res.send(data);
+    err ? console.log(err) : db.updateNumberOfPosts(array2, (err, data) => {
+      err ? console.log(err) : res.send(data)
+    })
   });
 });
+ 
+
 
 app.post("/api/posts/delete", (req, res) => {
   var array = [
@@ -834,4 +843,49 @@ app.post('/api/getNotification',(req,res)=>{
    
   })
   
+
+app.post("/api/users/numberOfPosts", (req, res) => {
+  var id = req.body.id
+  db.getCenterNumberOfPostsAvailble(id, (err, data) => {
+    err ? console.log(err) : res.send(data);
+  });
+}); 
+
+
+app.get("/api/posts/weeklyPosts/siver", (req, res) => {
+  db.weeklydataSilver((err, data) => {
+    if (err) throw err;
+    res.send(data);
+  });
+});
+
+app.get("/api/posts/weeklyPosts/gold", (req, res) => {
+  db.weeklydataGold((err, data) => {
+    if (err) throw err;
+    res.send(data);
+  });
+});
+
+app.get("/api/posts/weeklyPosts/plat", (req, res) => {
+  db.weeklydataPlat((err, data) => {
+    if (err) throw err;
+    res.send(data);
+  });
+});
+
+app.post("/api/users/PlatMembership", (req, res) => {
+  var name = [req.body.name]
+  db.changeMembershipToPlat(name, (err, data) => {
+    err ? console.log(err) : res.send(data);
+  });
+}); 
+
+app.post("/api/users/GoldMembership", (req, res) => {
+  var name = [req.body.name]
+  db.changeMembershipToGold(name, (err, data) => {
+    err ? console.log(err) : res.send(data);
+  });
+}); 
+
+
 app.listen(port, () => console.log(`server is listening on port ${port}`));

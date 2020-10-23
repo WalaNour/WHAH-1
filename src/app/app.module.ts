@@ -43,6 +43,8 @@ import { BanUsersComponent } from './ban-users/ban-users.component';
 import { StudentFeedComponent } from './student-feed/student-feed.component';
 import { NotificationComponent } from './notification/notification.component';
 
+import { AdminWeeklyUpdateComponent } from './admin-weekly-update/admin-weekly-update.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,6 +82,7 @@ import { NotificationComponent } from './notification/notification.component';
     BanUsersComponent,
     StudentFeedComponent,
     NotificationComponent,
+    AdminWeeklyUpdateComponent,
   ],
   imports: [
     BrowserModule,

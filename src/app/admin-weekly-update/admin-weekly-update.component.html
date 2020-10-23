@@ -1,0 +1,40 @@
+<p>admin-weekly-update works!</p>
+<button (click)="silver()">Silver</button>
+<button (click)="gold()">Gold</button>
+<button (click)="plat()">Plat</button>
+<div class="all">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Training</th>
+          <th scope="col">gold</th>
+          <th scope="col">plat</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let element of trainingCenters">
+        <tr>
+          {{
+            this.element?.name
+          }} he is :  {{this.element?.memberShip}}
+          <th>
+            <button
+              type="button"
+              class="btn btn-warning"
+              (click)="toGold(this.element?.name)"
+            >
+              Gold
+            </button>
+          </th>
+          <th>
+            <button
+              type="button"
+              class="btn btn-success"
+              (click)="toPlat(this.element?.name)"
+            >
+              plat 
+            </button>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
