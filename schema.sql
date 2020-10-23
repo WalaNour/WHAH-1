@@ -84,3 +84,9 @@ CREATE TABLE post(
     contact VARCHAR(50) ,
    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+CREATE TABLE notification (
+ id INT(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  title VARCHAR(50) ,
+   owner VARCHAR(50) ,
+   studentName VARCHAR(50)
+);

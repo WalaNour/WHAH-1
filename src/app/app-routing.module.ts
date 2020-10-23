@@ -33,6 +33,8 @@ import { ModifyPostTcComponent } from './modify-post-tc/modify-post-tc.component
 import { PostsCompanyProfileComponent } from './posts-company-profile/posts-company-profile.component'
 import { UpdateCompanyPostsComponent } from './update-company-posts/update-company-posts.component'
 import { BanUsersComponent } from './ban-users/ban-users.component';
+import { StudentFeedComponent } from './student-feed/student-feed.component';
+import { NotificationComponent } from './notification/notification.component';
 import { AdminWeeklyUpdateComponent } from './admin-weekly-update/admin-weekly-update.component';
 
 const routes: Routes = [
@@ -70,7 +72,9 @@ const routes: Routes = [
   { path : 'updateCompPost', component: UpdateCompanyPostsComponent},
   { path: 'post/center', component: PostCenterComponent },
   { path: 'own/posts', component: TcPostsComponent },
-  { path: 'admin/ban', component: BanUsersComponent },
+  { path: 'admin/ban', component : BanUsersComponent},
+  { path: 'feed/student', component : StudentFeedComponent},
+  { path: 'notification', component : NotificationComponent},
   { path: 'admin/update', component : AdminWeeklyUpdateComponent}
 
 ];
