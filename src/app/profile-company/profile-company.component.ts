@@ -1,22 +1,24 @@
  import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 import { Router } from '@angular/router';
-import { LocalService } from '../local.service'
-
+import { LocalService } from '../local.service';
 
 @Component({
   selector: 'app-profile-company',
   templateUrl: './profile-company.component.html',
-  styleUrls: ['./profile-company.component.css']
+  styleUrls: ['./profile-company.component.css'],
 })
 export class ProfileCompanyComponent implements OnInit {
+  constructor(
+    private _http: HttpService,
+    private router: Router,
+    private local: LocalService
+  ) {}
 
-  constructor(private _http: HttpService, private router: Router , private local : LocalService) { }
-
-  userData : any ; 
+  userData: any;
 
   ngOnInit(): void {
-    const userToken = localStorage.getItem('token')
+    const userToken = localStorage.getItem('token');
     var obj = {
       'token': userToken
     }
@@ -25,18 +27,19 @@ export class ProfileCompanyComponent implements OnInit {
       this.local.companyInfo.owner = res[0].owner;
       this.local.companyInfo.email = res[0].email;
     })
+
   }
 
-  updateCompany(){
-    this.router.navigateByUrl('/editCompany')
+  updateCompany() {
+    this.router.navigateByUrl('/editCompany');
   }
 
-  searchProfil(profilName){
-    this._http.findProfil({profilName}).subscribe((res)=>{
-      this.local.otherProfile = res 
-      this.router.navigateByUrl('/resultSearch')
-    })
-  };
+  searchProfil(profilName) {
+    this._http.findProfil({ profilName }).subscribe((res) => {
+      this.local.otherProfile = res;
+      this.router.navigateByUrl('/resultSearch');
+    });
+  }
   feed() {
     this.router.navigateByUrl('/post/company');
   }

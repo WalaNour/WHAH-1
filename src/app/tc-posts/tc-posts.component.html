@@ -27,9 +27,9 @@
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
               <a
-                class="nav-link active"
+              class="nav-link"
                 id="home-tab"
-                                 
+                 (click)="about()"
                 aria-controls="home"
                 aria-selected="true"
                 >About</a
@@ -37,8 +37,8 @@
             </li>
             <li class="nav-item">
               <a
-                class="nav-link"
-                (click)="posts()"
+                
+                class="nav-link active"
                 id="profile-tab"
                 aria-controls="profile"
                 aria-selected="false"
@@ -64,9 +64,8 @@
       <div class="col-md-4">
         <div class="profile-work">
           <a href="{{this.userData?.website}}">Website Link : </a><br />
-          
           <p>SKILLS</p>
-          <p>{{this.userData?.trainingOptions }}</p>
+          <p>{{ this.userData?.trainingOptions }}</p>
         </div>
       </div>
       <div class="col-md-8">
@@ -77,38 +76,17 @@
             role="tabpanel"
             aria-labelledby="home-tab"
           >
-            <div class="row">
-              <div class="col-md-6">
-                <label>Owner</label>
-              </div>
-              <div class="col-md-6">
-                <p>{{this.userData?.owner}}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <label>Number of  student graduated </label>
-              </div>
-              <div class="col-md-6">
-                <p>{{this.userData?.numberOfStudentGraduated }}</p>
+         
+            <div class="row" >
+                
+              <div class="col-md-6 father" *ngFor = "let element of userPosts">
+                  <label>post</label>
+                <p>{{this.element?.title}}</p>
+                <button (click)="delete(this.element.id)">delete</button>
+            
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-6">
-                <label>Email</label>
-              </div>
-              <div class="col-md-6">
-                <p>{{this.userData?.email}}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <label>Phone</label>
-              </div>
-              <div class="col-md-6">
-                <p>123 456 7890</p>
-              </div>
-            </div>
+            
           </div>
           <div
             class="tab-pane fade"
@@ -116,10 +94,10 @@
             role="tabpanel"
             aria-labelledby="profile-tab"
           >
-
           </div>
         </div>
       </div>
     </div>
   </form>
 </div>
+

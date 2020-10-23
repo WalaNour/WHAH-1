@@ -29,6 +29,8 @@ import { TrainingCenterEditComponent } from './training-center-edit/training-cen
 import { PostComapnyComponent } from './post-comapny/post-comapny.component';
 import { PostsCompanyProfileComponent } from './posts-company-profile/posts-company-profile.component'
 import { UpdateCompanyPostsComponent } from './update-company-posts/update-company-posts.component'
+import { TcPostsComponent } from './tc-posts/tc-posts.component';
+import { BanUsersComponent } from './ban-users/ban-users.component';
 
 const routes: Routes = [
   { path: 'register/student', component: VerficationComponent },
@@ -60,6 +62,11 @@ const routes: Routes = [
   { path: 'post/company', component : PostComapnyComponent},
   { path : 'companyOwnPost', component: PostsCompanyProfileComponent},
   { path : 'updateCompPost', component: UpdateCompanyPostsComponent}
+  { path: 'post/center', component: PostCenterComponent },
+  { path: 'own/posts', component: TcPostsComponent },
+  { path: 'admin/ban', component : BanUsersComponent}
+
+
 ];
 
 @NgModule({

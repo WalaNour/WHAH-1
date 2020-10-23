@@ -2,20 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 import { Router } from '@angular/router';
 import { LocalService } from '../local.service'
-
-
-
 @Component({
-  selector: 'app-profil-tc',
-  templateUrl: './profil-tc.component.html',
-  styleUrls: ['./profil-tc.component.css']
+  selector: 'app-tc-posts',
+  templateUrl: './tc-posts.component.html',
+  styleUrls: ['./tc-posts.component.css']
 })
-export class ProfilTcComponent implements OnInit{
+export class TcPostsComponent implements OnInit {
 
   constructor(private _http: HttpService, private router: Router , private local : LocalService) { }
-
   userData : any ; 
-
+  userPosts: any; 
   ngOnInit(): void {
     const userToken = localStorage.getItem('token')
     var obj = {
@@ -25,7 +21,14 @@ export class ProfilTcComponent implements OnInit{
        this.userData = res[0]
        console.log("logoo ",this.userData)
        this.local.tsInfo = { owner: this.userData.owner, email: this.userData.email }
+       var object = {owner : this.userData.owner}
+       this._http.httpgetTcPosts(object).subscribe((res) => {
+         console.log("this are your posts ", res)
+         this.userPosts = res 
+      })
      })
+     
+
   }
   updateProfil(){
     this.router.navigateByUrl('/editTc')
@@ -41,8 +44,16 @@ export class ProfilTcComponent implements OnInit{
   toPost() {
     this.router.navigateByUrl('/post/center')
   }
-  posts() {
-    this.router.navigateByUrl('own/posts')
-
+  about() {
+    this.router.navigateByUrl('/center/profile')
+  }
+  delete(id) {
+    var obj = {
+      id : id 
+    }
+    this._http.httpdeletePostTc(obj).subscribe((data) => {
+      alert("post deleted :)")
+      this.ngOnInit()
+    })
   }
 }

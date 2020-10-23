@@ -19,13 +19,14 @@ export class PostCenterComponent implements OnInit {
       title:title,
       description:description,
       image:image,
-      owner:"halim",
+      owner: this.local.tsInfo.owner,
       rate:11,
       salary:salary,
-      contact:"halim",
+      contact:this.local.tsInfo.email,
     }
     this._http.httpAddPostCenter(obj).subscribe((data) => {
       console.log(data)
+      this.profile()
     })
   }
   imgUpload(img) {
@@ -41,5 +42,8 @@ export class PostCenterComponent implements OnInit {
       console.log("RESP====> ", resp["msg"].url);
       this.imageUrl = resp["msg"].url;
     });
+  }
+  profile() {
+    this.router.navigateByUrl('/center/profile');
   }
 }
