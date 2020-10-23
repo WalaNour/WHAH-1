@@ -40,6 +40,7 @@ import { PostsCompanyProfileComponent } from './posts-company-profile/posts-comp
 import { UpdateCompanyPostsComponent } from './update-company-posts/update-company-posts.component';
 import { TcPostsComponent } from './tc-posts/tc-posts.component';
 import { BanUsersComponent } from './ban-users/ban-users.component';
+import { AdminWeeklyUpdateComponent } from './admin-weekly-update/admin-weekly-update.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { BanUsersComponent } from './ban-users/ban-users.component';
     PostsCompanyProfileComponent,
     UpdateCompanyPostsComponent,
     BanUsersComponent,
+    AdminWeeklyUpdateComponent,
   ],
   imports: [
     BrowserModule,

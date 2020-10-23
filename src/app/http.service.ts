@@ -192,5 +192,27 @@ export class HttpService {
   postsToModify(obj){
     return this.http.post(this.ROOT_URL  + '/api/upCompanyPost' , obj)
   } 
+
+  getNumberOfPostavailble(obj){
+    return this.http.post(this.ROOT_URL  + '/api/users/numberOfPosts' , obj)
+  } 
+
+  httpUpdateSilver() {
+    return this.http.get(this.ROOT_URL + "/api/posts/weeklyPosts/siver");
+  }
+  httpUpdateGold() {
+    return this.http.get(this.ROOT_URL + "/api/posts/weeklyPosts/gold");
+  }
+  httpUpdatePlat() {
+    return this.http.get(this.ROOT_URL + "/api/posts/weeklyPosts/plat");
+  }
+  
+  upgreadToPlat(obj){
+    return this.http.post(this.ROOT_URL  + '/api/users/PlatMembership' , obj)
+  } 
+  upgreadToGold(obj){
+    return this.http.post(this.ROOT_URL  + '/api/users/GoldMembership' , obj)
+  } 
+
 }
 
