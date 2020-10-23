@@ -40,6 +40,9 @@ import { PostsCompanyProfileComponent } from './posts-company-profile/posts-comp
 import { UpdateCompanyPostsComponent } from './update-company-posts/update-company-posts.component';
 import { TcPostsComponent } from './tc-posts/tc-posts.component';
 import { BanUsersComponent } from './ban-users/ban-users.component';
+import { StudentFeedComponent } from './student-feed/student-feed.component';
+import { NotificationComponent } from './notification/notification.component';
+
 import { AdminWeeklyUpdateComponent } from './admin-weekly-update/admin-weekly-update.component';
 
 @NgModule({
@@ -77,6 +80,8 @@ import { AdminWeeklyUpdateComponent } from './admin-weekly-update/admin-weekly-u
     PostsCompanyProfileComponent,
     UpdateCompanyPostsComponent,
     BanUsersComponent,
+    StudentFeedComponent,
+    NotificationComponent,
     AdminWeeklyUpdateComponent,
   ],
   imports: [

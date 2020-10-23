@@ -48,4 +48,7 @@ export class ProfileCompanyComponent implements OnInit {
     this.router.navigateByUrl('/companyOwnPost');
 
   }
+  studentApply(){
+    this.router.navigateByUrl('notification')
+  }
 }
