@@ -494,7 +494,41 @@ const banCenter = (arr, callback) => {
     err ? callback(err, null) : callback(null, data);
   });
 };
+const StApply=(arr,callback)=>{
+  let sql = `insert into notification (title ,owner, studentName) values (?,?,?)`;
+  connection.query(sql, arr, (err, data) => {
+    if (err) throw callback(err, null);
+    callback(null, data);
+  });
+};
+const getStudentApplication=(arr,callback)=>{
+ let sql = `select * from notification WHERE owner = ?  `;
+  connection.query(sql,arr, (err, data) => {
+    if (err) throw callback(err, null);
+    callback(null, data);
+  });
+}
+const deleteApp = (arr, callback) => {
+  
+  let sql = "DELETE FROM notification WHERE id = ?";
+  connection.query(sql, arr, (err, data) => {
+    err ? callback(err, null) : callback(null, data);
+  });
+};
+const acceptApp = (arr, callback) => {
+  
+  let sql = "DELETE FROM notification WHERE id = ?";
+  connection.query(sql, arr, (err, data) => {
+    err ? callback(err, null) : callback(null, data);
+  });
+};
+
+
 module.exports = {
+  acceptApp,
+  deleteApp,
+  getStudentApplication,
+  StApply,
    updatePost,
   updateOnePost,
   delCompPosts,

@@ -192,5 +192,17 @@ export class HttpService {
   postsToModify(obj){
     return this.http.post(this.ROOT_URL  + '/api/upCompanyPost' , obj)
   } 
+  applystudent(obj){
+    return this.http.post(this.ROOT_URL+'/api/student/apply',obj);
+  }
+  httpGetApplications(obj){
+    return this.http.post(this.ROOT_URL+'/api/getNotification' , obj)
+  }
+  httpacceptApp(obj){
+    return this.http.post(this.ROOT_URL+'/api/acceptapply',obj);
+  }
+  httpdeleteApplication(obj){
+    return this.http.post(this.ROOT_URL  + '/api/deleteApply' , obj)
+  }
 }
 

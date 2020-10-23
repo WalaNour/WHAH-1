@@ -809,7 +809,29 @@ app.post("/api/users/ban/training", (req, res) => {
     err ? console.log(err) : res.send(data);
   });
 }); 
-
-
-
+app.post("/api/student/apply",(req,res)=>{
+  var arr =Object.values(req.body);
+  db.StApply(arr,(err,data)=>{
+    err?console.log(err):res.send(data);
+  })
+})
+app.post('/api/getNotification',(req,res)=>{
+  var arr = [req.body.owner]
+  db.getStudentApplication( arr, (err,data)=>{
+    if (err) throw err;
+    res.send(data);
+  })})
+  app.post('/api/deleteApply',(req,res)=>{
+    db.deleteApp( req.body.id, (err, data)=>{
+      err? console.log(err) :res.send(data) 
+    })
+   
+  })
+  app.post('/api/acceptapply',(req,res)=>{
+    db.acceptApp( req.body.id, (err, data)=>{
+      err? console.log(err) :res.send(data) 
+    })
+   
+  })
+  
 app.listen(port, () => console.log(`server is listening on port ${port}`));
