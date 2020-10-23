@@ -20,6 +20,7 @@ export class ProfileCompanyComponent implements OnInit {
   ngOnInit(): void {
     const userToken = localStorage.getItem('token');
     var obj = {
+
       'token': userToken
     }
     this._http.compantProfil(obj).subscribe((res)=>{

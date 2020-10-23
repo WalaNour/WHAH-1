@@ -8,8 +8,8 @@ export class LocalService {
   otherProfile: any;
   onePost: any; 
   companyInfo : any = {};
-  post: any 
   tsInfo : any = {}
+  post : any 
   constructor() { }
 
 }

@@ -184,6 +184,12 @@ export class HttpService {
   updateCompanyPosts(obj){
     return this.http.post(this.ROOT_URL  + '/api/upCompanyPosts' , obj)
   }
+  httpgetTcPosts(obj){
+    return this.http.post(this.ROOT_URL  + '/api/users/postsTc' , obj)
+  }
+  update(array){
+    return this.http.post(this.ROOT_URL+'/api/update',array);
+  }
   //update company posts by id before modify
   postsToModify(obj){
     return this.http.post(this.ROOT_URL  + '/api/upCompanyPost' , obj)

@@ -689,6 +689,7 @@ app.post('/api/center/update', (req, res)=>{
   })
 })
 
+
 //get the company posts by the owner name
 
 app.post('/api/sreachByOwner', (req, res)=>{
@@ -732,6 +733,25 @@ app.post("/api/users/postsTc", (req, res) => {
     res.send(data);
   });
 });
+app.post('/api/update',(req,res)=>{
+ var arr=req.body;
+ var obj1=arr[0];
+ var obj2=arr[1];
+var arr1=Object.values(obj1)
+var arr2=Object.values(obj2)
+console.log(arr1,arr2)
+for(var i=0;i<arr1.length;i++){
+  if(!arr1[i]){
+    arr1[i]=arr2[i];
+  }
+  
+}
+console.log (arr1);
+db.updatePost(arr1, (err, data) => {
+  err ? console.log(err) : res.send(data);
+});
+ 
+})
 
 app.post("/api/posts/deleteTc", (req, res) => {
   var array = [

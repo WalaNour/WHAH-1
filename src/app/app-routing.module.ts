@@ -27,6 +27,9 @@ import { PostComponent } from './post/post.component';
 import { AdminPostsComponent } from './admin-posts/admin-posts.component';
 import { TrainingCenterEditComponent } from './training-center-edit/training-center-edit.component';
 import { PostComapnyComponent } from './post-comapny/post-comapny.component';
+ 
+import { TcPostsComponent } from './tc-posts/tc-posts.component';
+import { ModifyPostTcComponent } from './modify-post-tc/modify-post-tc.component';
 import { PostsCompanyProfileComponent } from './posts-company-profile/posts-company-profile.component'
 import { UpdateCompanyPostsComponent } from './update-company-posts/update-company-posts.component'
 import { TcPostsComponent } from './tc-posts/tc-posts.component';
@@ -60,6 +63,9 @@ const routes: Routes = [
   { path : 'admin/delete' , component : AdminPostsComponent},
   { path: 'editTc', component : TrainingCenterEditComponent},
   { path: 'post/company', component : PostComapnyComponent},
+  { path: 'post/center', component: PostCenterComponent },
+  { path: 'own/posts', component : TcPostsComponent},
+  { path: 'modify/tc/posts', component : ModifyPostTcComponent}
   { path : 'companyOwnPost', component: PostsCompanyProfileComponent},
   { path : 'updateCompPost', component: UpdateCompanyPostsComponent}
   { path: 'post/center', component: PostCenterComponent },

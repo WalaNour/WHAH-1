@@ -1,0 +1,45 @@
+<input type="text" placeholder="{{ this.data.title }}" #title name="title" />
+<input
+  type="text"
+  placeholder="{{ this.data.description }}"
+  #description
+  name="description"
+/>
+<input type="text" placeholder="{{ this.data.image }}" #image name="image" />
+<input
+  type="number"
+  placeholder="{{ this.data.salary }}"
+  #salary
+  name="salary"
+/>
+<input
+  type="text"
+  placeholder="{{ this.data.contact }}"
+  #contact
+  name="contact"
+/>
+<button
+  (click)="
+    modify(
+      {
+        title: title.value,
+        description: description.value,
+        image: image.value,
+        salary: salary.value,
+        contact: contact.value,
+        id : this.data.id
+      },
+      {
+        title: this.data.title,
+        description: this.data.description,
+        image: this.data.image,
+        salary: this.data.salary,
+        contact: this.data.contact,
+        id : this.data.id
+
+      }
+    )
+  "
+>
+  update
+</button>

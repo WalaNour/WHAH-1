@@ -47,6 +47,10 @@ export class TcPostsComponent implements OnInit {
   about() {
     this.router.navigateByUrl('/center/profile')
   }
+  handleClick(post){
+    this.local.post = post 
+    this.router.navigateByUrl('/modify/tc/posts')
+
   delete(id) {
     var obj = {
       id : id 

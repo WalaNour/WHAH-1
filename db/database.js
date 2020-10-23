@@ -385,6 +385,7 @@ const updateTc = (username, obj, callback) => {
   }
 };
 
+
 //select posts by owner to render in company profile
 
 const postsByOwner = (owner, callback) => {
@@ -435,6 +436,14 @@ const getPostsOfTc = (arr,callback) => {
     callback(null, data);
   });
 };
+const  updatePost= (arr, callback) => {
+  let sql =
+    "UPDATE post SET  title = ? , description= ? ,   image = ? , salary = ? ,  contact = ?  WHERE id = ? ";
+    connection.query(sql, arr, (err, data) => {
+    err ? callback(err, null) : callback(null, data);
+  });
+};
+
 ////////////////////////////////////////////////////////////
 const getAllStudents = (callback) => {
   let sql = `select * from students `;
@@ -472,6 +481,7 @@ const banStudent = (arr, callback) => {
   });
 };
 
+
 const banCompany = (arr, callback) => {
   let sql = "DELETE FROM companies WHERE id = ?";
   connection.query(sql, arr, (err, data) => {
@@ -485,6 +495,7 @@ const banCenter = (arr, callback) => {
   });
 };
 module.exports = {
+   updatePost,
   updateOnePost,
   delCompPosts,
   postsByOwner,

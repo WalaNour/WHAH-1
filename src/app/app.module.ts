@@ -35,6 +35,8 @@ import { FeedComponent } from './feed/feed.component';
 import { PostComponent } from './post/post.component';
 import { AdminPostsComponent } from './admin-posts/admin-posts.component';
 import { TrainingCenterEditComponent } from './training-center-edit/training-center-edit.component';
+import { TcPostsComponent } from './tc-posts/tc-posts.component';
+import { ModifyPostTcComponent } from './modify-post-tc/modify-post-tc.component';
 import { PostsCompanyProfileComponent } from './posts-company-profile/posts-company-profile.component';
 import { UpdateCompanyPostsComponent } from './update-company-posts/update-company-posts.component';
 import { TcPostsComponent } from './tc-posts/tc-posts.component';
@@ -70,6 +72,8 @@ import { BanUsersComponent } from './ban-users/ban-users.component';
     PostComponent,
     AdminPostsComponent,
     TrainingCenterEditComponent,
+    TcPostsComponent,
+    ModifyPostTcComponent,
     PostsCompanyProfileComponent,
     UpdateCompanyPostsComponent,
     TcPostsComponent,
