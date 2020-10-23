@@ -385,6 +385,50 @@ const updateTc = (username, obj, callback) => {
   }
 };
 
+
+//select posts by owner to render in company profile
+
+const postsByOwner = (owner, callback) => {
+  let sql = `select * from post where owner = '${owner}'`;
+  connection.query(sql, (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+//delete posts inside company profile using owner
+const delCompPosts = (id, callback) =>{
+  let sql = `DELETE FROM post WHERE id = ${id}`
+  connection.query(sql, (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+  //update company posts by id before modify
+  const updateOnePost = (id, obj, callback) => {
+    var arr = Object.keys(obj);
+    var arr1 = Object.values(obj);
+    for (var i = 0; i < arr.length; i++) {
+      let sql = `UPDATE post SET ${arr[i]} = '${arr1[i]}' WHERE id = '${id}'`;
+      connection.query(sql, (err, data) => {
+        if (err) {
+          callback(err, null);
+        } else {
+          callback(null, data);
+        }
+      });
+    }
+  };
+
+
+
 const getPostsOfTc = (arr,callback) => {
   let sql = `select * from post WHERE owner = ?  `;
   connection.query(sql, arr , (err, data) => {
@@ -392,6 +436,14 @@ const getPostsOfTc = (arr,callback) => {
     callback(null, data);
   });
 };
+const  updatePost= (arr, callback) => {
+  let sql =
+    "UPDATE post SET  title = ? , description= ? ,   image = ? , salary = ? ,  contact = ?  WHERE id = ? ";
+    connection.query(sql, arr, (err, data) => {
+    err ? callback(err, null) : callback(null, data);
+  });
+};
+
 ////////////////////////////////////////////////////////////
 const getAllStudents = (callback) => {
   let sql = `select * from students `;
@@ -429,6 +481,7 @@ const banStudent = (arr, callback) => {
   });
 };
 
+
 const banCompany = (arr, callback) => {
   let sql = "DELETE FROM companies WHERE id = ?";
   connection.query(sql, arr, (err, data) => {
@@ -441,7 +494,100 @@ const banCenter = (arr, callback) => {
     err ? callback(err, null) : callback(null, data);
   });
 };
+
+
+const getCenterNumberOfPostsAvailble = (id, callback) => {
+  let sql = `select numberOfPostsAvaible from trainingCenters where id = '${id}'`;
+  connection.query(sql, (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+
+const updateNumberOfPosts = (arr, callback) => {
+  let sql = `UPDATE trainingCenters SET  numberOfPostsAvaible = ?   WHERE id = ? `;
+  connection.query(sql,arr, (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+const weeklydataSilver = (arr, callback) => {
+  let sql = `UPDATE trainingCenters SET  numberOfPostsAvaible = 3   WHERE memberShip = 'silver' `;
+  connection.query(sql,arr, (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+
+const weeklydataGold = (arr, callback) => {
+  let sql = `UPDATE trainingCenters SET  numberOfPostsAvaible = 5   WHERE memberShip = 'gold' `;
+  connection.query(sql,arr, (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+const weeklydataPlat = (arr, callback) => {
+  let sql = `UPDATE trainingCenters SET  numberOfPostsAvaible = 10   WHERE memberShip = 'plat' `;
+  connection.query(sql,arr, (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+const changeMembershipToPlat = (arr, callback) => {
+  let sql = `UPDATE trainingCenters SET  numberOfPostsAvaible = 10 , memberShip = 'plat'   WHERE name = ? `;
+  connection.query(sql,arr, (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+const changeMembershipToGold = (arr, callback) => {
+  let sql = `UPDATE trainingCenters SET  numberOfPostsAvaible = 5 , memberShip = 'Gold'   WHERE name = ? `;
+  connection.query(sql,arr, (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+
 module.exports = {
+  changeMembershipToPlat,
+  changeMembershipToGold,
+  weeklydataPlat,
+  weeklydataGold,
+  weeklydataSilver,
+  updateNumberOfPosts,
+  getCenterNumberOfPostsAvailble,
+   updatePost,
+  updateOnePost,
+  delCompPosts,
+  postsByOwner,
   banCenter,
   banCompany,
   banStudent,

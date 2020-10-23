@@ -9,6 +9,7 @@ export class LocalService {
   onePost: any; 
   companyInfo : any = {};
   tsInfo : any = {}
+  post : any 
   constructor() { }
 
 }

@@ -11,8 +11,13 @@ export class PostCenterComponent implements OnInit {
 
   constructor(private _http: HttpService, private local: LocalService , private router : Router) { }
   imageUrl: any;
-
+  centerData : any 
   ngOnInit(): void {
+    this.centerData = {
+      numberOfPosts: this.local.tsInfo.postsNumber, 
+      id : this.local.tsInfo.id,
+    }
+  console.log("aaaa" , this.centerData)
   }
   add(image, title, description, salary) {
     var obj = {
@@ -22,12 +27,17 @@ export class PostCenterComponent implements OnInit {
       owner: this.local.tsInfo.owner,
       rate:11,
       salary:salary,
-      contact:this.local.tsInfo.email,
+      contact: this.local.tsInfo.email,
+      idCenter: this.centerData.id, 
+      newNumberOfPosts : this.centerData.numberOfPosts - 1 
     }
-    this._http.httpAddPostCenter(obj).subscribe((data) => {
-      console.log(data)
-      this.profile()
-    })
+    if (this.centerData.numberOfPosts !== 0) {
+      this._http.httpAddPostCenter(obj).subscribe((data) => {
+        console.log(data)
+        this.profile()
+      })
+    } else { alert("you dont have the right to post")}
+   
   }
   imgUpload(img) {
     console.log("IMG FROM VER==> ", img.target.files[0]);

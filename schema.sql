@@ -67,6 +67,8 @@ CREATE TABLE trainingCenters(
     verRequest VARCHAR (10)   DEFAULT 'false' , 
     firstTime VARCHAR (10)   DEFAULT 'true',
     numberOfPosts INTEGER(50) ,
+    memberShip VARCHAR (10)   DEFAULT 'silver',
+    numberOfPostsAvaible INTEGER(10) DEFAULT 3 , 
     token varchar (300) 
 
 );

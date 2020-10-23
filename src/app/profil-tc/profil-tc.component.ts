@@ -1,48 +1,53 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 import { Router } from '@angular/router';
-import { LocalService } from '../local.service'
-
-
+import { LocalService } from '../local.service';
 
 @Component({
   selector: 'app-profil-tc',
   templateUrl: './profil-tc.component.html',
-  styleUrls: ['./profil-tc.component.css']
+  styleUrls: ['./profil-tc.component.css'],
 })
-export class ProfilTcComponent implements OnInit{
+export class ProfilTcComponent implements OnInit {
+  constructor(
+    private _http: HttpService,
+    private router: Router,
+    private local: LocalService
+  ) {}
 
-  constructor(private _http: HttpService, private router: Router , private local : LocalService) { }
-
-  userData : any ; 
+  userData: any;
 
   ngOnInit(): void {
-    const userToken = localStorage.getItem('token')
+    const userToken = localStorage.getItem('token');
     var obj = {
-      'token': userToken
-    }
-     this._http.tcProfil(obj).subscribe((res)=>{
-       this.userData = res[0]
-       console.log("logoo ",this.userData)
-       this.local.tsInfo = { owner: this.userData.owner, email: this.userData.email }
-     })
+      token: userToken,
+    };
+    this._http.tcProfil(obj).subscribe((res) => {
+      this.userData = res[0];
+
+      this.local.tsInfo = {
+        owner: this.userData.owner,
+        email: this.userData.email,
+        id: this.userData.id,
+        postsNumber: this.userData.numberOfPostsAvaible,
+      };
+      console.log('logoo ', this.local.tsInfo);
+    });
   }
-  updateProfil(){
-    this.router.navigateByUrl('/editTc')
+  updateProfil() {
+    this.router.navigateByUrl('/editTc');
   }
 
-
-  searchProfil(profilName){
-    this._http.findProfil({profilName}).subscribe((res)=>{
-      this.local.otherProfile = res[0]
-      this.router.navigateByUrl('/resultSearch')
-    })
-  };
+  searchProfil(profilName) {
+    this._http.findProfil({ profilName }).subscribe((res) => {
+      this.local.otherProfile = res[0];
+      this.router.navigateByUrl('/resultSearch');
+    });
+  }
   toPost() {
-    this.router.navigateByUrl('/post/center')
+    this.router.navigateByUrl('/post/center');
   }
   posts() {
-    this.router.navigateByUrl('own/posts')
-
+    this.router.navigateByUrl('own/posts');
   }
 }
