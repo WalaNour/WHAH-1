@@ -144,6 +144,7 @@ export class HttpService {
   }
   savePosts(obj){
     return this.http.post(this.ROOT_URL  + '/api/addPosts' , obj)
+
   }
   httpgetTcPosts(obj){
     return this.http.post(this.ROOT_URL  + '/api/users/postsTc' , obj)
@@ -171,5 +172,21 @@ export class HttpService {
   httpbancenter(obj) {
     return this.http.post(this.ROOT_URL + "/api/users/ban/training", obj);
   }
+  //find own company posts
+  findCompanyPosts(obj){
+    return this.http.post(this.ROOT_URL  + '/api/sreachByOwner' , obj)
+  }
+  //delete posts inside company profile using owner
+  deleteCompanyPosts(obj){
+    return this.http.post(this.ROOT_URL  + '/api/rmCompanyPosts' , obj)
+  }
+  //update posts from company profile
+  updateCompanyPosts(obj){
+    return this.http.post(this.ROOT_URL  + '/api/upCompanyPosts' , obj)
+  }
+  //update company posts by id before modify
+  postsToModify(obj){
+    return this.http.post(this.ROOT_URL  + '/api/upCompanyPost' , obj)
+  } 
 }
 

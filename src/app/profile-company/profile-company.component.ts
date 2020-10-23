@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+ import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 import { Router } from '@angular/router';
 import { LocalService } from '../local.service';
@@ -20,13 +20,14 @@ export class ProfileCompanyComponent implements OnInit {
   ngOnInit(): void {
     const userToken = localStorage.getItem('token');
     var obj = {
-      token: userToken,
-    };
-    this._http.compantProfil(obj).subscribe((res) => {
+      'token': userToken
+    }
+    this._http.compantProfil(obj).subscribe((res)=>{
       this.userData = res[0];
       this.local.companyInfo.owner = res[0].owner;
       this.local.companyInfo.email = res[0].email;
-    });
+    })
+
   }
 
   updateCompany() {
@@ -41,5 +42,9 @@ export class ProfileCompanyComponent implements OnInit {
   }
   feed() {
     this.router.navigateByUrl('/post/company');
+  }
+  ownPosts(){
+    this.router.navigateByUrl('/companyOwnPost');
+
   }
 }

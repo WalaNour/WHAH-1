@@ -27,6 +27,9 @@ export class PostComapnyComponent implements OnInit {
       console.log('posts sended')
     })
   }
+  back(){
+    this.router.navigateByUrl('companyOwnPost')
+  }
   imgUpload(img) {
     console.log("IMG FROM VER==> ", img.target.files[0]);
     // THE IMAGE NEED TO BE INSIDE A FORMDATA OBJECT
