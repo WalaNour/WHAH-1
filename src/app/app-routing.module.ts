@@ -32,7 +32,6 @@ import { TcPostsComponent } from './tc-posts/tc-posts.component';
 import { ModifyPostTcComponent } from './modify-post-tc/modify-post-tc.component';
 import { PostsCompanyProfileComponent } from './posts-company-profile/posts-company-profile.component'
 import { UpdateCompanyPostsComponent } from './update-company-posts/update-company-posts.component'
-import { TcPostsComponent } from './tc-posts/tc-posts.component';
 import { BanUsersComponent } from './ban-users/ban-users.component';
 
 const routes: Routes = [
@@ -65,9 +64,9 @@ const routes: Routes = [
   { path: 'post/company', component : PostComapnyComponent},
   { path: 'post/center', component: PostCenterComponent },
   { path: 'own/posts', component : TcPostsComponent},
-  { path: 'modify/tc/posts', component : ModifyPostTcComponent}
+  { path: 'modify/tc/posts', component : ModifyPostTcComponent},
   { path : 'companyOwnPost', component: PostsCompanyProfileComponent},
-  { path : 'updateCompPost', component: UpdateCompanyPostsComponent}
+  { path : 'updateCompPost', component: UpdateCompanyPostsComponent},
   { path: 'post/center', component: PostCenterComponent },
   { path: 'own/posts', component: TcPostsComponent },
   { path: 'admin/ban', component : BanUsersComponent}

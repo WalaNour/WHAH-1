@@ -15,6 +15,7 @@ export class PostsCompanyProfileComponent implements OnInit {
   compPosts : any 
   ngOnInit(): void {
      this._http.findCompanyPosts(this.local.companyInfo).subscribe((data)=>{
+       console.log(this.local.companyInfo)
        this.compPosts = data 
      })  
   }
