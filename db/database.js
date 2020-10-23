@@ -385,6 +385,50 @@ const updateTc = (username, obj, callback) => {
   }
 };
 
+
+//select posts by owner to render in company profile
+
+const postsByOwner = (owner, callback) => {
+  let sql = `select * from post where owner = '${owner}'`;
+  connection.query(sql, (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+//delete posts inside company profile using owner
+const delCompPosts = (id, callback) =>{
+  let sql = `DELETE FROM post WHERE id = ${id}`
+  connection.query(sql, (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+  //update company posts by id before modify
+  const updateOnePost = (id, obj, callback) => {
+    var arr = Object.keys(obj);
+    var arr1 = Object.values(obj);
+    for (var i = 0; i < arr.length; i++) {
+      let sql = `UPDATE post SET ${arr[i]} = '${arr1[i]}' WHERE id = '${id}'`;
+      connection.query(sql, (err, data) => {
+        if (err) {
+          callback(err, null);
+        } else {
+          callback(null, data);
+        }
+      });
+    }
+  };
+
+
+
 const getPostsOfTc = (arr,callback) => {
   let sql = `select * from post WHERE owner = ?  `;
   connection.query(sql, arr , (err, data) => {
@@ -395,13 +439,73 @@ const getPostsOfTc = (arr,callback) => {
 const  updatePost= (arr, callback) => {
   let sql =
     "UPDATE post SET  title = ? , description= ? ,   image = ? , salary = ? ,  contact = ?  WHERE id = ? ";
+    connection.query(sql, arr, (err, data) => {
+    err ? callback(err, null) : callback(null, data);
+  });
+};
+
+////////////////////////////////////////////////////////////
+const getAllStudents = (callback) => {
+  let sql = `select * from students `;
+  connection.query(sql, (err, data) => {
+    if (err) throw callback(err, null);
+    callback(null, data);
+  });
+};
+
+const getAllCompanies = (callback) => {
+  let sql = `select * from companies `;
+  connection.query(sql, (err, data) => {
+    if (err) throw callback(err, null);
+    callback(null, data);
+  });
+};
+const getAllTrainingCenters = (callback) => {
+  let sql = `select * from trainingCenters `;
+  connection.query(sql, (err, data) => {
+    if (err) throw callback(err, null);
+    callback(null, data);
+  });
+};
+const deletePostTc = (arr, callback) => {
+  let sql = "DELETE FROM post WHERE id = ?";
   connection.query(sql, arr, (err, data) => {
     err ? callback(err, null) : callback(null, data);
   });
 };
 
+const banStudent = (arr, callback) => {
+  let sql = "DELETE FROM student WHERE id = ?";
+  connection.query(sql, arr, (err, data) => {
+    err ? callback(err, null) : callback(null, data);
+  });
+};
+
+
+const banCompany = (arr, callback) => {
+  let sql = "DELETE FROM companies WHERE id = ?";
+  connection.query(sql, arr, (err, data) => {
+    err ? callback(err, null) : callback(null, data);
+  });
+};
+const banCenter = (arr, callback) => {
+  let sql = "DELETE FROM trainingCenters WHERE id = ?";
+  connection.query(sql, arr, (err, data) => {
+    err ? callback(err, null) : callback(null, data);
+  });
+};
 module.exports = {
-  updatePost,
+   updatePost,
+  updateOnePost,
+  delCompPosts,
+  postsByOwner,
+  banCenter,
+  banCompany,
+  banStudent,
+  getAllTrainingCenters,
+  getAllCompanies,
+  getAllStudents,
+  deletePostTc,
   getPostsOfTc,
   updateTc,
   savePosts,

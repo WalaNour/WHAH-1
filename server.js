@@ -689,6 +689,43 @@ app.post('/api/center/update', (req, res)=>{
   })
 })
 
+
+//get the company posts by the owner name
+
+app.post('/api/sreachByOwner', (req, res)=>{
+  db.postsByOwner(req.body.owner, (err, data)=>{
+    err? console.log(err) :res.send(data) 
+  })
+
+})
+
+  //delete posts inside company profile using owner
+app.post('/api/rmCompanyPosts', (req, res)=>{
+  console.log('id ==== >' ,req.body)
+  db.delCompPosts(req.body.id, (err, data)=>{
+    err? console.log(err) :res.send(data) 
+  })
+}) 
+
+  //find company posts by id before modify
+app.post('/api/upCompanyPost', (req, res)=>{
+  const id = req.body['2'];
+
+  var obj = {}
+  for(var i = 0 ; i < req.body[0].length ; i++){
+    obj[req.body[1][i]] = req.body[0][i]
+  }
+  for(var key in obj){
+    if(!obj[key]){
+      delete obj[key]
+    }
+  }
+  console.log(obj)
+  db.updateOnePost(id, obj,(err, data)=>{
+    err? console.log(err) :console.log(data) 
+  })
+})
+
 app.post("/api/users/postsTc", (req, res) => {
   var array = [req.body.owner];
   db.getPostsOfTc(array, (err, data) => {
@@ -715,4 +752,64 @@ db.updatePost(arr1, (err, data) => {
 });
  
 })
+
+app.post("/api/posts/deleteTc", (req, res) => {
+  var array = [
+    req.body.id,
+  ];
+  db.deletePostTc(array, (err, data) => {
+    err ? console.log(err) : res.send(data);
+  });
+}); 
+
+app.get("/api/students", (req, res) => {
+  db.getAllStudents((err, data) => {
+    if (err) throw err;
+    res.send(data);
+  });
+});
+
+app.get("/api/companies", (req, res) => {
+  db.getAllCompanies((err, data) => {
+    if (err) throw err;
+    res.send(data);
+  });
+});
+app.get("/api/trainingCenters", (req, res) => {
+  db.getAllTrainingCenters((err, data) => {
+    if (err) throw err;
+    res.send(data);
+  });
+});
+
+
+app.post("/api/users/ban/student", (req, res) => {
+  var array = [
+    req.body.id,
+  ];
+  db.banStudent(array, (err, data) => {
+    err ? console.log(err) : res.send(data);
+  });
+}); 
+
+app.post("/api/users/ban/company", (req, res) => {
+  var array = [
+    req.body.id,
+  ];
+  db.banCompany(array, (err, data) => {
+    err ? console.log(err) : res.send(data);
+  });
+}); 
+
+app.post("/api/users/ban/training", (req, res) => {
+  var array = [
+    req.body.id,
+  ];
+  db.banCenter(array, (err, data) => {
+    err ? console.log(err) : res.send(data);
+  });
+}); 
+
+
+
 app.listen(port, () => console.log(`server is listening on port ${port}`));

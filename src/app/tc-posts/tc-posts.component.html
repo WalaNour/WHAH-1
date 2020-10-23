@@ -80,6 +80,7 @@
                   <label>post</label>
                   <p>{{ this.element?.title }}</p>
                   <button (click)="handleClick(this.element)">modify</button>
+                  <button (click)="delete(this.element.id)">delete</button>
                 </div>
               </div>
             </div>
@@ -95,3 +96,5 @@
     </form>
   </div>
 </div>
+
+

@@ -51,5 +51,13 @@ export class TcPostsComponent implements OnInit {
     this.local.post = post 
     this.router.navigateByUrl('/modify/tc/posts')
 
+  delete(id) {
+    var obj = {
+      id : id 
+    }
+    this._http.httpdeletePostTc(obj).subscribe((data) => {
+      alert("post deleted :)")
+      this.ngOnInit()
+    })
   }
 }

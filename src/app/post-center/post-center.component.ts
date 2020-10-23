@@ -26,6 +26,7 @@ export class PostCenterComponent implements OnInit {
     }
     this._http.httpAddPostCenter(obj).subscribe((data) => {
       console.log(data)
+      this.profile()
     })
   }
   imgUpload(img) {
@@ -41,5 +42,8 @@ export class PostCenterComponent implements OnInit {
       console.log("RESP====> ", resp["msg"].url);
       this.imageUrl = resp["msg"].url;
     });
+  }
+  profile() {
+    this.router.navigateByUrl('/center/profile');
   }
 }

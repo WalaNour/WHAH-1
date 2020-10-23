@@ -109,4 +109,15 @@ body{
 .profile-tab p{
     font-weight: 600;
     color: #0062cc;
+
+}
+
+.father {
+border: groove;
+padding: 3%;
+margin-left: 10%;
+margin-bottom: 3%;
+
+text-align: center;
+
 }
