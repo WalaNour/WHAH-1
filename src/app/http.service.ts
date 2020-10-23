@@ -146,9 +146,7 @@ export class HttpService {
     return this.http.post(this.ROOT_URL  + '/api/addPosts' , obj)
 
   }
-  httpgetTcPosts(obj){
-    return this.http.post(this.ROOT_URL  + '/api/users/postsTc' , obj)
-  }
+
   httpdeletePostTc(obj) {
     console.log(obj)
     return this.http.post(this.ROOT_URL + "/api/posts/deleteTc", obj);
