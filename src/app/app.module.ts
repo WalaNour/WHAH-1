@@ -44,6 +44,7 @@ import { StudentFeedComponent } from './student-feed/student-feed.component';
 import { NotificationComponent } from './notification/notification.component';
 
 import { AdminWeeklyUpdateComponent } from './admin-weekly-update/admin-weekly-update.component';
+import { LoginAdminComponent } from './login-admin/login-admin.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import { AdminWeeklyUpdateComponent } from './admin-weekly-update/admin-weekly-u
     StudentFeedComponent,
     NotificationComponent,
     AdminWeeklyUpdateComponent,
+    LoginAdminComponent,
   ],
   imports: [
     BrowserModule,
