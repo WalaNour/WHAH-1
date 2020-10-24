@@ -74,7 +74,7 @@ const routes: Routes = [
   { path: 'own/posts', component: TcPostsComponent },
   { path: 'admin/ban', component : BanUsersComponent},
   { path: 'feed/student', component : StudentFeedComponent},
-  { path: 'notification', component : NotificationComponent}
+  { path: 'notification', component : NotificationComponent},
   { path: 'admin/update', component : AdminWeeklyUpdateComponent}
 
 ];
