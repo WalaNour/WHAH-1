@@ -79,8 +79,18 @@
                 <div class="col-md-6" *ngFor="let element of userPosts">
                   <label>post</label>
                   <p>{{ this.element?.title }}</p>
-                  <button (click)="handleClick(this.element)">modify</button>
-                  <button (click)="delete(this.element.id)">delete</button>
+                  <button
+                    class="btn btn-dark"
+                    (click)="handleClick(this.element)"
+                  >
+                    modify
+                  </button>
+                  <button
+                    class="btn btn-danger"
+                    (click)="delete(this.element.id)"
+                  >
+                    delete
+                  </button>
                 </div>
               </div>
             </div>
@@ -96,5 +106,3 @@
     </form>
   </div>
 </div>
-
-
