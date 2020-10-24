@@ -1,3 +1,11 @@
+<nav nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <img src="../../assets/logo.png" style="width: 10%; height: 10%;" />
+  <a (click)="ban()">Ban</a>
+  <a (click)="verifications()">Verifications</a>
+  <a (click)="membership()">Memberships</a>
+  <a (click)="goback()">disconnect</a>
+</nav>
+
 <div class="all">
   <table class="table">
     <thead class="thead-dark">
@@ -9,9 +17,7 @@
     </thead>
     <tbody *ngFor="let element of NonValidStudents">
       <tr>
-        {{
-          this.element?.username
-        }}
+        {{ this.element?.username }}
         <th>
           <button
             type="button"
@@ -44,9 +50,7 @@
     </thead>
     <tbody *ngFor="let element of NonValidCompanies">
       <tr>
-        {{
-          this.element?.name
-        }}
+        {{ this.element?.name }}
         <th>
           <button
             type="button"
@@ -79,9 +83,7 @@
     </thead>
     <tbody *ngFor="let element of NonValidCenters">
       <tr>
-        {{
-          this.element?.name
-        }}
+        {{ this.element?.name }}
         <th>
           <button
             type="button"
@@ -104,5 +106,3 @@
     </tbody>
   </table>
 </div>
-
-<button (click)="goback()">go back to land</button>
