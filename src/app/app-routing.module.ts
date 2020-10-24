@@ -38,6 +38,7 @@ import { NotificationComponent } from "./notification/notification.component";
 import { AdminWeeklyUpdateComponent } from "./admin-weekly-update/admin-weekly-update.component";
 import { LoginAdminComponent } from "./login-admin/login-admin.component";
 
+
 const routes: Routes = [
   { path: "register/student", component: VerficationComponent },
   {
