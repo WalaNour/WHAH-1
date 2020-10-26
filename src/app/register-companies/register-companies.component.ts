@@ -5,21 +5,20 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-register-companies',
   templateUrl: './register-companies.component.html',
-  styleUrls: ['./register-companies.component.css']
+  styleUrls: ['./register-companies.component.css'],
 })
 export class RegisterCompaniesComponent implements OnInit {
+  constructor(private _http: HttpService, private router: Router) {}
 
-  constructor(private _http:HttpService,private router: Router) { }
-
-  ngOnInit(): void { }
+  ngOnInit(): void {}
   signin() {
     this.router.navigateByUrl('/signin/company');
   }
-  collectCompanies(name,password) {
-    var obj = { name, password};
+  // sing up company
+  collectCompanies(name, password) {
+    var obj = { name, password };
     this._http.registerCompanies(obj).subscribe((data) => {
       this.router.navigateByUrl('/signin/company');
     });
   }
-
 }

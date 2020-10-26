@@ -14,7 +14,8 @@ export class LoginAdminComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+  // to change 
   login(admin, password) {
     if (admin === "admin" && password === "admin") {
       this.router.navigateByUrl("/admin");

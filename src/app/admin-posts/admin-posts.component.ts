@@ -11,16 +11,16 @@ export class AdminPostsComponent implements OnInit {
 
   constructor(private _http : HttpService , private local : LocalService , private router : Router) { }
   posts: any; 
-  deletePost: any; 
   ngOnInit(): void {
+    // get all the posts from database 
     this._http.httpGetPosts().subscribe((data) => {
         this.posts = data 
     })
   }
   seeMore(post) {
-    console.log(post.id)
-    this.deletePost = post.id; 
-    var obj = { id : post.id}
+    // get the id of the post that you want to delete it 
+    var obj = { id: post.id }
+    // delete the post and rerender the posts and alert deleted 
     this._http.httpdeletePost(obj).subscribe((data) => {
       this.ngOnInit()
       alert("deleted :) ")

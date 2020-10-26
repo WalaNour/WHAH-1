@@ -13,10 +13,10 @@ export class StudentRegisterComponent implements OnInit {
   signin() {
     this.router.navigateByUrl('/signin/student');
   }
+  // sign up student 
   collect(username, email, secretinfo, password) {
     var obj = { username, email, secretinfo, password };
     this._http.register(obj).subscribe((data) => {
-      console.log("hehehhe")
       this.router.navigateByUrl('/signin/student');
     });
   }

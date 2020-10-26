@@ -198,7 +198,7 @@ app.post("/api/users/rejectCenter", (req, res) => {
     res.send(data);
   });
 });
-//////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////GET NON VERIFIED USERS///////////////////////////////////////////
 
 app.get("/api/users/getNonVerifiedStudents", async (req, res) => {
   try {
@@ -226,7 +226,7 @@ app.get("/api/users/getNonVerifiedCenters", async (req, res) => {
     console.error(err);
   }
 });
-
+//////////////// GET USER STATE ////////////
 app.post("/api/users/getUsersatate", (req, res) => {
   console.log(req.body);
   db.getUserStatus(req.body.username, (err, data) => {
@@ -251,6 +251,8 @@ app.post("/api/users/getCentersatate", (req, res) => {
   });
 });
 
+
+// SIGN UP STUDENT
 app.post("/addStudents", (req, res) => {
   console.log(req.body);
   var arr = [
@@ -266,10 +268,10 @@ app.post("/addStudents", (req, res) => {
   });
 });
 
+// LOG IN 
 app.post("/login", (req, res) => {
   db.getUserInfo(req.body.username, (err, data) => {
-    if (err) throw err;
-
+    if (err) throw res.send("error");
     console.log(data[0].password);
     var boolean = bcrypt.compareSync(req.body.password, data[0].password);
     var obj = {
@@ -289,7 +291,6 @@ app.post("/login", (req, res) => {
             err ? console.log(err) : res.status(200).json({ token: token });
             db.saveUserToken(req.body.username, token, (err, data) => {
               if (err) throw err;
-              console.log("token saved");
             });
           }
         )
@@ -369,7 +370,7 @@ app.post("/loginTC", (req, res) => {
       : res.send({ err });
   });
 });
-
+////////////////// ADD TOKENS TO DATABASE //////////////
 app.post("/api/users/studentToken", (req, res) => {
   db.selectUserByToken(req.body.token, (err, data) => {
     if (err) throw err;

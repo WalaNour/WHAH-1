@@ -17,22 +17,23 @@ export class PostsCompanyProfileComponent implements OnInit {
   compPosts: any;
   ngOnInit(): void {
     this._http.findCompanyPosts(this.local.companyInfo).subscribe((data) => {
-      console.log(this.local.companyInfo);
       this.compPosts = data;
     });
   }
+  // save the data of post in local service the redirect to update component
   editPost(post) {
     this.local.post = post;
     this.router.navigateByUrl('updateCompPost');
   }
-  //where owner = and created at =
+  //delete post by id
   deletePost(id) {
     var obj = { id };
     this._http.deleteCompanyPosts(obj).subscribe((data) => {
-      console.log('post removed');
+      alert('post removed');
       this.ngOnInit();
     });
   }
+  // redirect to profile
   backToProfile() {
     this.router.navigateByUrl('company/profile');
   }

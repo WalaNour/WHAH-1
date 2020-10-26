@@ -11,7 +11,7 @@ export class RegisterStudentComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+//// TO DELETE //////////
   collect( username,email,secretinfo,password,reppassword){
     console.log('done')
   }

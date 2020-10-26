@@ -18,19 +18,22 @@ export class StudentFeedComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.local.message)
+    // get all the posts
     this._http.httpGetPosts().subscribe((data) => {
-      console.log('data yohooo ===> ', data);
       this.posts = data;
     });
   }
 
-  apply(obj){
-    this._http.applystudent(obj).subscribe(data=>{
-      alert("Dear Student , your application is saved , we'll conatct you as soon as possible");
+  apply(obj) {
+    // apply for post
+    this._http.applystudent(obj).subscribe((data) => {
+      alert(
+        "Dear Student , your application is saved , we'll conatct you as soon as possible"
+      );
       this.router.navigateByUrl('/studentProfile');
-    })
+    });
   }
+  // see the all the post
   seeMore(post) {
     this.local.onePost = post;
     this.router.navigateByUrl('/post');

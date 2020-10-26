@@ -13,13 +13,14 @@ export class AdminWeeklyUpdateComponent implements OnInit {
     private local: LocalService,
     private router: Router
   ) {}
-
   trainingCenters: any;
   ngOnInit(): void {
+    // get all the training centers name's and memberships 
     this._http.httpGetTrainingCenter().subscribe((data) => {
-      console.log("this is training ===>", (this.trainingCenters = data));
+     this.trainingCenters = data
     });
   }
+  //////////////// update the number of posts ////////////////////////////
   silver() {
     this._http.httpUpdateSilver().subscribe((data) => {
       alert("silver up to date");
@@ -35,6 +36,8 @@ export class AdminWeeklyUpdateComponent implements OnInit {
       alert("Plat up to date");
     });
   }
+
+  /////////////////// Change the membership ///////////////////////////////////
   toPlat(name) {
     var obj = { name: name };
     this._http.upgreadToPlat(obj).subscribe((data) => {
@@ -49,6 +52,8 @@ export class AdminWeeklyUpdateComponent implements OnInit {
       alert("up to Gold");
     });
   }
+
+  /////// Redirect admin /////////////////////
   goback() {
     this.router.navigateByUrl("/admin/login");
   }

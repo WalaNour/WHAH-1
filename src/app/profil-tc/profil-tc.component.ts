@@ -22,28 +22,29 @@ export class ProfilTcComponent implements OnInit {
     var obj = {
       token: userToken,
     };
+    // get the data of the training center
     this._http.tcProfil(obj).subscribe((res) => {
       this.userData = res[0];
-
       this.local.tsInfo = {
         owner: this.userData.owner,
         email: this.userData.email,
         id: this.userData.id,
         postsNumber: this.userData.numberOfPostsAvaible,
       };
-      console.log('logoo ', this.local.tsInfo);
     });
   }
+  // redirect to edit profile
   updateProfil() {
     this.router.navigateByUrl('/editTc');
   }
-
+  // search profile student
   searchProfil(profilName) {
     this._http.findProfil({ profilName }).subscribe((res) => {
       this.local.otherProfile = res[0];
       this.router.navigateByUrl('/resultSearch');
     });
   }
+  // redirect to own posts component
   toPost() {
     this.router.navigateByUrl('/post/center');
   }

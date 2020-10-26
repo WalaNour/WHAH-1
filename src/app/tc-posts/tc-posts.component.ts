@@ -21,39 +21,43 @@ export class TcPostsComponent implements OnInit {
       token: userToken,
     };
     this._http.tcProfil(obj).subscribe((res) => {
+      // GET center data
       this.userData = res[0];
-      console.log('logoo ', this.userData);
       this.local.tsInfo = {
         owner: this.userData.owner,
         email: this.userData.email,
       };
       var object = { owner: this.userData.owner };
+      // get all the posts of the center
       this._http.httpgetTcPosts(object).subscribe((res) => {
-        console.log('this are your posts ', res);
         this.userPosts = res;
       });
     });
   }
+  // redirect to update profile
   updateProfil() {
     this.router.navigateByUrl('/editTc');
   }
-
+  // Search profile user
   searchProfil(profilName) {
     this._http.findProfil({ profilName }).subscribe((res) => {
       this.local.otherProfile = res[0];
       this.router.navigateByUrl('/resultSearch');
     });
   }
+  ///////////////// redirect /////////////////
   toPost() {
     this.router.navigateByUrl('/post/center');
   }
   about() {
     this.router.navigateByUrl('/center/profile');
   }
+  // redirect to post modify component
   handleClick(post) {
     this.local.post = post;
     this.router.navigateByUrl('/modify/tc/posts');
   }
+  // delete post by id
   delete(id) {
     var obj = {
       id: id,

@@ -19,16 +19,16 @@ export class StudentLoginComponent implements OnInit {
   ngOnInit(): void {
     localStorage.getItem('token');
   }
+  // to sign up
   singup() {
     this.router.navigateByUrl('/signup/student');
   }
+  // sign in user and redirect acording to its data
   collectLog(username, password) {
-    console.log('ya koussaaay ====>', username.value);
     const obj = {
       username: username.value,
       password: password.value,
     };
-    console.log(obj.username);
     this.local.message = obj.username;
     this._http.loginStudent(obj).subscribe((data) => {
       this.token = data['token'];

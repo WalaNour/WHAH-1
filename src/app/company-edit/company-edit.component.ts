@@ -16,19 +16,17 @@ export class CompanyEditComponent implements OnInit {
   ) {}
   tokenCompany: String = '';
   ngOnInit(): void {
+    // get the token from the local storage
     this.tokenCompany = localStorage.getItem('token');
   }
-
+  // update company profile by token
   takedata([], [], token) {
-    console.log(arguments[0]);
-
     this._http.updateCompanyData(arguments).subscribe((data) => {
-      console.log('secces');
+      alert('secces');
     });
   }
-  backProfile(){
-    this.router.navigateByUrl('/company/profile')
+  // go back to profile
+  backProfile() {
+    this.router.navigateByUrl('/company/profile');
   }
-    
-  
 }
