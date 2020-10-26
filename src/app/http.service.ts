@@ -236,4 +236,12 @@ export class HttpService {
   upgreadToGold(obj) {
     return this.http.post(this.ROOT_URL + '/api/users/GoldMembership', obj);
   }
+  ////////////////////////// sending the reports //////////////////
+  reportPost(obj) {
+    return this.http.post(this.ROOT_URL + '/api/report', obj);
+  }
+  ////////////////////////Admin side for receiving the reports /////////////////
+  getReports() {
+    return this.http.get(this.ROOT_URL + '/api/adminReports');
+  }
 }

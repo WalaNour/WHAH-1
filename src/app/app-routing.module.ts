@@ -36,7 +36,8 @@ import { StudentFeedComponent } from './student-feed/student-feed.component';
 import { NotificationComponent } from './notification/notification.component';
 import { AdminWeeklyUpdateComponent } from './admin-weekly-update/admin-weekly-update.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
-
+import { ReportComponent } from './report/report.component';
+import { AdminReportsComponent } from './admin-reports/admin-reports.component';
 
 const routes: Routes = [
   { path: 'register/student', component: VerficationComponent },
@@ -78,6 +79,9 @@ const routes: Routes = [
   { path: 'notification', component: NotificationComponent },
   { path: 'admin/update', component: AdminWeeklyUpdateComponent },
   { path: 'admin/login', component: LoginAdminComponent },
+  { path: 'report/post', component: ReportComponent },
+  { path: 'report/admin', component: AdminReportsComponent }
+
 ];
 
 @NgModule({

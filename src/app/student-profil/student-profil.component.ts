@@ -35,7 +35,6 @@ export class StudentProfilComponent implements OnInit {
       this.router.navigateByUrl('/resultSearch');
     });
   }
-
   // feed(){
   //   this.router.navigateByUrl('/feed/student');
   // }

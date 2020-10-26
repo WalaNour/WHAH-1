@@ -888,5 +888,23 @@ app.post("/api/users/GoldMembership", (req, res) => {
   });
 }); 
 
+app.post("/api/report", (req, res) => {
+  var report = [req.body.name,
+    req.body.reason,
+    req.body.comment,
+    req.body.postId
+  
+  ]
+  db.reportSt(report, (err, data) => {
+    err ? console.log(err) : res.send(data);
+  });
+}); 
+
+app.get("/api/adminReports", (req, res) => {
+  db.getReportsFromUser((err, data) => {
+    if (err) throw err;
+    res.send(data);
+  });
+});
 
 app.listen(port, () => console.log(`server is listening on port ${port}`));

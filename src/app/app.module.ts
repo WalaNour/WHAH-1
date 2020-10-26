@@ -45,6 +45,8 @@ import { NotificationComponent } from './notification/notification.component';
 
 import { AdminWeeklyUpdateComponent } from './admin-weekly-update/admin-weekly-update.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
+import { ReportComponent } from './report/report.component';
+import { AdminReportsComponent } from './admin-reports/admin-reports.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +87,8 @@ import { LoginAdminComponent } from './login-admin/login-admin.component';
     NotificationComponent,
     AdminWeeklyUpdateComponent,
     LoginAdminComponent,
+    ReportComponent,
+    AdminReportsComponent,
   ],
   imports: [
     BrowserModule,
