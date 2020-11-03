@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpService } from '../http.service';
-import { Router } from '@angular/router';
-import { LocalService } from '../local.service';
+import { Component, OnInit } from "@angular/core";
+import { HttpService } from "../http.service";
+import { Router } from "@angular/router";
+import { LocalService } from "../local.service";
 
 @Component({
-  selector: 'app-profile-company',
-  templateUrl: './profile-company.component.html',
-  styleUrls: ['./profile-company.component.css'],
+  selector: "app-profile-company",
+  templateUrl: "./profile-company.component.html",
+  styleUrls: ["./profile-company.component.css"],
 })
 export class ProfileCompanyComponent implements OnInit {
   constructor(
@@ -18,7 +18,7 @@ export class ProfileCompanyComponent implements OnInit {
   userData: any;
 
   ngOnInit(): void {
-    const userToken = localStorage.getItem('token');
+    const userToken = localStorage.getItem("token");
     var obj = {
       token: userToken,
     };
@@ -31,23 +31,26 @@ export class ProfileCompanyComponent implements OnInit {
   }
   // redirect to company edit profile component
   updateCompany() {
-    this.router.navigateByUrl('/editCompany');
+    this.router.navigateByUrl("/editCompany");
+  }
+  backToProfile() {
+    this.router.navigateByUrl("company/profile");
   }
   // search profile student
   searchProfil(profilName) {
     this._http.findProfil({ profilName }).subscribe((res) => {
       this.local.otherProfile = res;
-      this.router.navigateByUrl('/resultSearch');
+      this.router.navigateByUrl("/resultSearch");
     });
   }
   ///////////////////////// redirect user //////////////////
   feed() {
-    this.router.navigateByUrl('/post/company');
+    this.router.navigateByUrl("/post/company");
   }
   ownPosts() {
-    this.router.navigateByUrl('/companyOwnPost');
+    this.router.navigateByUrl("/companyOwnPost");
   }
   studentApply() {
-    this.router.navigateByUrl('notification');
+    this.router.navigateByUrl("notification");
   }
 }

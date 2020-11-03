@@ -1,0 +1,84 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <!-- <a class="navbar-brand" (click)="home()">logo</a> -->
+  <img
+    (click)="home()"
+    src="../../assets/logo.png"
+    width="80"
+    height="50"
+    alt=""
+    loading="lazy"
+    style="cursor: pointer;"
+    
+  />
+  <!-- <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+  >
+    <span class="navbar-toggle-icon"></span>
+  </button> -->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          >Student</a
+        >
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" (click)="student()">SignUp</a>
+          <a class="dropdown-item" (click)="studentl()">SignIn</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          >Company</a
+        >
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" (click)="company()">SignUp</a>
+          <a class="dropdown-item" (click)="companyl()">SignIn</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          >Training Center</a
+        >
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" (click)="center()">SignUp</a>
+          <a class="dropdown-item" (click)="centerl()">SignIn</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="about-section">
+  <div class="inner-container">
+    <h1>About Us</h1>
+    <p class="text">
+      We inted to create the best fun and original way to improve the current
+      educational system , if you want do discover more and start building your
+      dreams start now ...
+    </p>
+    <div class="skills">
+      <a>Wala Nour</a>
+      <a>Halim Boussada </a>
+      <a>Hamza BenJabeur</a>
+      <a>Ala Rbai</a>
+    </div>
+  </div>
+</div>

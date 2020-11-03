@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpService } from '../http.service';
-import { Router } from '@angular/router';
-import { LocalService } from '../local.service';
+import { Component, OnInit } from "@angular/core";
+import { HttpService } from "../http.service";
+import { Router } from "@angular/router";
+import { LocalService } from "../local.service";
 
 @Component({
-  selector: 'app-posts-company-profile',
-  templateUrl: './posts-company-profile.component.html',
-  styleUrls: ['./posts-company-profile.component.css'],
+  selector: "app-posts-company-profile",
+  templateUrl: "./posts-company-profile.component.html",
+  styleUrls: ["./posts-company-profile.component.css"],
 })
 export class PostsCompanyProfileComponent implements OnInit {
   constructor(
@@ -23,18 +23,34 @@ export class PostsCompanyProfileComponent implements OnInit {
   // save the data of post in local service the redirect to update component
   editPost(post) {
     this.local.post = post;
-    this.router.navigateByUrl('updateCompPost');
+    this.router.navigateByUrl("updateCompPost");
   }
   //delete post by id
   deletePost(id) {
     var obj = { id };
     this._http.deleteCompanyPosts(obj).subscribe((data) => {
-      alert('post removed');
+      alert("post removed");
       this.ngOnInit();
     });
   }
   // redirect to profile
   backToProfile() {
-    this.router.navigateByUrl('company/profile');
+    this.router.navigateByUrl("company/profile");
+  }
+  searchProfil(profilName) {
+    this._http.findProfil({ profilName }).subscribe((res) => {
+      this.local.otherProfile = res;
+      this.router.navigateByUrl("/resultSearch");
+    });
+  }
+  ///////////////////////// redirect user //////////////////
+  feed() {
+    this.router.navigateByUrl("/post/company");
+  }
+  ownPosts() {
+    this.router.navigateByUrl("/companyOwnPost");
+  }
+  studentApply() {
+    this.router.navigateByUrl("notification");
   }
 }

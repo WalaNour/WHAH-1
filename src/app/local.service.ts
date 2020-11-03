@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
+
 })
 export class LocalService {
   // connected user name
@@ -16,7 +17,12 @@ export class LocalService {
   tsInfo: any = {};
   // post data
   post: any;
-  // reported post data 
-  reported: any; 
+  // reported post data
+  reported: any;
+  // data of user 
+  user : any ; 
+  // protected routes
+  redirected : boolean = false ;
+  
   constructor() {}
 }

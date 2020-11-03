@@ -28,7 +28,8 @@ export class LoginTcComponent implements OnInit {
     };
     // log and acording to the user data redirect him
     this._http.loginTC(obj).subscribe((data) => {
-      this.token = data['token'];
+      if(data){
+        this.token = data['token'];
       localStorage.setItem('token', this.token);
       this._http.httpgetCenterState({ name: name.value }).subscribe((data) => {
         var c1 =
@@ -58,6 +59,10 @@ export class LoginTcComponent implements OnInit {
           this.router.navigateByUrl('/wait');
         }
       });
+      }
+      else{
+        alert('wrong password')
+      }
     });
   }
 }

@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterStudentComponent } from './register-student/register-student.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { VerficationComponent } from './verfication/verfication.component';
 import { SendRequestforVerificationComponent } from './send-requestfor-verification/send-requestfor-verification.component';
@@ -45,8 +45,17 @@ import { NotificationComponent } from './notification/notification.component';
 
 import { AdminWeeklyUpdateComponent } from './admin-weekly-update/admin-weekly-update.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
-import { ReportComponent } from './report/report.component';
+import { ReportsToAdminComponent } from './reports-to-admin/reports-to-admin.component';
+import { AdminReportComponent } from './admin-report/admin-report.component';
 import { AdminReportsComponent } from './admin-reports/admin-reports.component';
+import { ReportComponent } from './report/report.component';
+import { AdminTreesComponent } from './admin-trees/admin-trees.component';
+import { StudentsTreesComponent } from './students-trees/students-trees.component';
+import { AdminAddCoachComponent } from './admin-add-coach/admin-add-coach.component';
+import { CoachListComponent } from './coach-list/coach-list.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ChoiceComponent } from './choice/choice.component';
+
 
 @NgModule({
   declarations: [
@@ -87,15 +96,25 @@ import { AdminReportsComponent } from './admin-reports/admin-reports.component';
     NotificationComponent,
     AdminWeeklyUpdateComponent,
     LoginAdminComponent,
-    ReportComponent,
+    ReportsToAdminComponent,
+    AdminReportComponent,
     AdminReportsComponent,
+    ReportComponent,
+    AdminTreesComponent,
+    StudentsTreesComponent,
+    AdminAddCoachComponent,
+    CoachListComponent,
+    AboutUsComponent,
+    ChoiceComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule,
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

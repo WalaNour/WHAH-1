@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpService } from '../http.service';
-import { LocalService } from '../local.service';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { HttpService } from "../http.service";
+import { LocalService } from "../local.service";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-notification',
-  templateUrl: './notification.component.html',
-  styleUrls: ['./notification.component.css'],
+  selector: "app-notification",
+  templateUrl: "./notification.component.html",
+  styleUrls: ["./notification.component.css"],
 })
 export class NotificationComponent implements OnInit {
   application: any;
@@ -24,18 +24,36 @@ export class NotificationComponent implements OnInit {
       console.log(data);
     });
   }
-  accept(id){
-    var obj={id}
-  this._http.httpacceptApp(obj).subscribe(data=>{
-    console.log(data);
-    this.ngOnInit();
-  })
+  accept(id) {
+    var obj = { id };
+    this._http.httpacceptApp(obj).subscribe((data) => {
+      console.log(data);
+      this.ngOnInit();
+    });
   }
   reject(id) {
     var obj = { id };
     this._http.httpdeleteApplication(obj).subscribe((data) => {
-      
       this.ngOnInit();
     });
+  }
+  backToProfile() {
+    this.router.navigateByUrl("company/profile");
+  }
+  searchProfil(profilName) {
+    this._http.findProfil({ profilName }).subscribe((res) => {
+      this.local.otherProfile = res;
+      this.router.navigateByUrl("/resultSearch");
+    });
+  }
+  ///////////////////////// redirect user //////////////////
+  feed() {
+    this.router.navigateByUrl("/post/company");
+  }
+  ownPosts() {
+    this.router.navigateByUrl("/companyOwnPost");
+  }
+  studentApply() {
+    this.router.navigateByUrl("notification");
   }
 }

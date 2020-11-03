@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { LocalService } from "../local.service";
 import { HttpService } from "../http.service";
 import { Router } from "@angular/router";
 
@@ -8,7 +9,11 @@ import { Router } from "@angular/router";
   styleUrls: ["./admin-verification.component.css"],
 })
 export class AdminVerificationComponent implements OnInit {
-  constructor(private _http: HttpService, private router: Router) {}
+  constructor(
+    private _http: HttpService,
+    private local: LocalService,
+    private router: Router
+  ) {}
   NonValidStudents: any;
   NonValidCompanies: any;
   NonValidCenters: any;
@@ -80,20 +85,38 @@ export class AdminVerificationComponent implements OnInit {
     });
   }
 
- // DISCONNECT 
   goback() {
+    this.local.redirected = false;
+
     this.router.navigateByUrl("/admin/login");
   }
-  // go to ban users interface 
+  // go to ban users interface
   ban() {
     this.router.navigateByUrl("/admin/ban");
   }
-    // go to verification users interface 
-  verifications() {
+  // go to verification users interface
+  verf() {
     this.router.navigateByUrl("/admin");
   }
-    // go to memberships of training centers interface 
-  membership() {
+  // go to memberships of training centers interface
+  member() {
     this.router.navigateByUrl("/admin/update");
+  }
+
+  post() {
+    this.router.navigateByUrl("/admin/delete");
+  }
+  feedback() {
+    this.router.navigateByUrl("/AdminReport");
+  }
+  report() {
+    this.router.navigateByUrl("/report/admin");
+  }
+  adTree() {
+    this.router.navigateByUrl("/tree/admin");
+  }
+
+  coach() {
+    this.router.navigateByUrl("/admin/addCoach");
   }
 }

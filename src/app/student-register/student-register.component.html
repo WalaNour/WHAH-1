@@ -66,8 +66,12 @@
         <h2 class="title">Sign up</h2>
         <div class="input-field">
           <i class="fas fa-user"></i>
-          <input #name type="text" placeholder="Username" name="name" />
+          <input #name type="text"  name="name" placeholder="name" [ngModel]="" (ngModelChange)="func($event)"/>
         </div>
+        <p>Existing Name</p>
+        <div *ngFor ="let element of user">
+          <span>{{this.element?.username}}</span>  
+        </div> 
         <div class="input-field">
           <i class="fas fa-user"></i>
           <input #email type="text" placeholder="email" name="email" />

@@ -15,9 +15,9 @@ export class AdminWeeklyUpdateComponent implements OnInit {
   ) {}
   trainingCenters: any;
   ngOnInit(): void {
-    // get all the training centers name's and memberships 
+    // get all the training centers name's and memberships
     this._http.httpGetTrainingCenter().subscribe((data) => {
-     this.trainingCenters = data
+      this.trainingCenters = data;
     });
   }
   //////////////// update the number of posts ////////////////////////////
@@ -53,22 +53,43 @@ export class AdminWeeklyUpdateComponent implements OnInit {
     });
   }
 
-  /////// Redirect admin /////////////////////
-  goback() {
-    this.router.navigateByUrl("/admin/login");
-  }
-  ban() {
-    this.router.navigateByUrl("/admin/ban");
-  }
-  verifications() {
-    this.router.navigateByUrl("/admin");
-  }
-  membership() {
-    this.router.navigateByUrl("/admin/update");
-  }
   all() {
     this.plat();
     this.silver();
     this.gold();
+  }
+  goback() {
+    this.local.redirected = false;
+
+    this.router.navigateByUrl("/admin/login");
+  }
+  // go to ban users interface
+  ban() {
+    this.router.navigateByUrl("/admin/ban");
+  }
+  // go to verification users interface
+  verf() {
+    this.router.navigateByUrl("/admin");
+  }
+  // go to memberships of training centers interface
+  member() {
+    this.router.navigateByUrl("/admin/update");
+  }
+
+  post() {
+    this.router.navigateByUrl("/admin/delete");
+  }
+  feedback() {
+    this.router.navigateByUrl("/AdminReport");
+  }
+  report() {
+    this.router.navigateByUrl("/report/admin");
+  }
+  adTree() {
+    this.router.navigateByUrl("/tree/admin");
+  }
+
+  coach() {
+    this.router.navigateByUrl("/admin/addCoach");
   }
 }

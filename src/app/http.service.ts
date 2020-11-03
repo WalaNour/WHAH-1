@@ -19,8 +19,8 @@ export class HttpService {
     return this.http.post(this.ROOT_URL + '/addStudents', data);
   }
   //////////////// LOG IN /////////////////////////
-  loginStudent(data) {
-    return this.http.post(this.ROOT_URL + '/login', data);
+  loginStudent(obj) {
+    return this.http.post(this.ROOT_URL + '/login', obj);
   }
   loginCompanies(data) {
     return this.http.post(this.ROOT_URL + '/loginCompanies', data);
@@ -236,6 +236,20 @@ export class HttpService {
   upgreadToGold(obj) {
     return this.http.post(this.ROOT_URL + '/api/users/GoldMembership', obj);
   }
+  //////////////////// handle the users report to admin //////////////////
+  //save users report to db and get
+  usersReport(obj) {
+    return this.http.post(this.ROOT_URL + '/api/users/Reports', obj);
+  }
+  getUsersReport() {
+    return this.http.get(this.ROOT_URL + '/api/admin/getReports');
+  }
+  deleteReports(obj) {
+    return this.http.post(this.ROOT_URL + '/api/admin/delReports', obj);
+  }
+  deleteAllReports() {
+    return this.http.delete(this.ROOT_URL + '/api/admin/delAllReports');
+  }
   ////////////////////////// sending the reports //////////////////
   reportPost(obj) {
     return this.http.post(this.ROOT_URL + '/api/report', obj);
@@ -243,5 +257,59 @@ export class HttpService {
   ////////////////////////Admin side for receiving the reports /////////////////
   getReports() {
     return this.http.get(this.ROOT_URL + '/api/adminReports');
+  }
+  //////////////////////////// Add coach ////////////
+  addCoach(obj) {
+    return this.http.post(this.ROOT_URL + '/api/addCoach', obj);
+  }
+  ////////////////////////// GET ALL Coaches /////////////////////////////////
+  getCoaches() {
+    return this.http.get(this.ROOT_URL + '/api/users/coach');
+  }
+  //////////////////////////// Add tree ////////////
+  addTree(obj) {
+    return this.http.post(this.ROOT_URL + '/api/addTree', obj);
+  }
+  ////////////////////////// GET ALL trees /////////////////////////////////
+  getTrees() {
+    return this.http.get(this.ROOT_URL + '/api/users/trees');
+  }
+
+  //////////////////////////// Add path ////////////
+  addPath(obj) {
+    return this.http.post(this.ROOT_URL + '/api/addPath', obj);
+  }
+  ////////////////////////// GET ALL paths /////////////////////////////////
+  getPaths() {
+    return this.http.get(this.ROOT_URL + '/api/users/paths');
+  }
+  //////////////////////////// get relations ////////////
+  getJoin(obj) {
+    return this.http.post(this.ROOT_URL + '/api/users/relation', obj);
+  }
+  //////////////////////////// Add relation ////////////
+  addrelation(obj) {
+    return this.http.post(this.ROOT_URL + '/api/addRelation', obj);
+  }
+
+  getPathByName(obj) {
+    return this.http.post(this.ROOT_URL + '/api/users/onePaths', obj);
+  }
+
+  //////////////////////////// Add comment ////////////
+  addcomment(obj) {
+    return this.http.post(this.ROOT_URL + '/users/addComment', obj);
+  }
+  //////////////////////////// Add comment ////////////
+  getcomment(obj) {
+    return this.http.post(this.ROOT_URL + '/users/getComment', obj);
+  }
+  //check username in singUp students
+  checkExistingNames(obj) {
+    return this.http.post(this.ROOT_URL + '/users/checkExistingNames', obj);
+  }
+  checkuserNames(obj) {
+    return this.http.post(this.ROOT_URL + '/users/checkNames', obj);
+
   }
 }

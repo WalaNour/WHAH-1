@@ -91,6 +91,13 @@ CREATE TABLE notification (
    studentName VARCHAR(50)
 );
 
+CREATE TABLE feedbacks(
+
+  id INT(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  message VARCHAR(150),
+  typeOfUser VARCHAR(15),
+  username VARCHAR(50)
+);
 
 CREATE TABLE reports (
  id INT(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -98,6 +105,62 @@ CREATE TABLE reports (
 reason VARCHAR(50) ,
 comment VARCHAR(250),
 postId VARCHAR(50)
+);
+
+CREATE TABLE coach (
+id INT(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+fullName VARCHAR(50) ,
+image VARCHAR(100) ,
+
+diplome VARCHAR(50) ,
+experience VARCHAR(250),
+about VARCHAR(1000) , 
+email  VARCHAR(50) , 
+number INTEGER(20) 
+);
+
+CREATE TABLE trees (
+  id INT(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  job VARCHAR(30),
+  field VARCHAR(30)
+);
+
+CREATE TABLE paths (
+  id INT(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(30),
+  stepOne VARCHAR(30),
+  descOne VARCHAR(200),
+  stepTwo VARCHAR(30),
+  descTwo VARCHAR(200),
+  stepThree VARCHAR(30),
+  descThree VARCHAR(200),
+  stepFour VARCHAR(30),
+  descFour VARCHAR(200),
+  stepFive VARCHAR(30),
+  descFive VARCHAR(200),
+  stepSix VARCHAR(30),
+  descSix VARCHAR(200),
+  stepSeven VARCHAR(30),
+  descSeven VARCHAR(200),
+  stepEight VARCHAR(30),
+  descEight VARCHAR(200),
+  stepNine VARCHAR(30),
+  descNine VARCHAR(200),
+  stepTen VARCHAR(30),
+  descTen VARCHAR(200)
+);
+CREATE TABLE relations (
+  id INT(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  treeName VARCHAR(30) ,
+  pathName VARCHAR(30)
+);
+
+CREATE TABLE comments (
+  id INT(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  postId INT(4),
+  username VARCHAR(30),
+  postsText VARCHAR(255),
+  imgUrl VARCHAR(150)
 );
 
 

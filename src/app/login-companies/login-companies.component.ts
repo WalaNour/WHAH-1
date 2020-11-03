@@ -29,7 +29,9 @@ export class LoginCompaniesComponent implements OnInit {
     };
     // log and acording to the user data redirect him
     this._http.loginCompanies(obj).subscribe((data) => {
-      this.token = data['token'];
+      console.log(data)
+      if(data){
+        this.token = data['token'];
       localStorage.setItem('token', this.token);
       this._http.httpgetCompanyState({ name: name.value }).subscribe((data) => {
         var c1 =
@@ -59,6 +61,10 @@ export class LoginCompaniesComponent implements OnInit {
           this.router.navigateByUrl('/wait');
         }
       });
+      }
+      else{
+        alert('wrong password')
+      }
     });
   }
 }

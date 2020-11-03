@@ -68,73 +68,50 @@
 
 <!--navbar-->
 
-<nav
-  class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top"
-  id="navigation-example"
->
-  <div class="container-fluid">
-    <div class="navbar-wrapper">
-      <a class="navbar-brand">User Profile</a>
-    </div>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      aria-controls="navigation-index"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-      data-target="#navigation-example"
-    >
-      <span class="sr-only">Toggle navigation</span>
-      <span class="navbar-toggler-icon icon-bar"></span>
-      <span class="navbar-toggler-icon icon-bar"></span>
-      <span class="navbar-toggler-icon icon-bar"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end">
-      <form class="navbar-form">
-        <div class="input-group no-border">
-          <input
-            type="text"
-            value=""
-            class="form-control"
-            placeholder="Search..."
-            name="search"
-            #search
-          />
-          <button
-            type="submit"
-            (click)="searchProfil(search.value)"
-            class="btn btn-default btn-round btn-just-icon"
-          >
-            <i class="material-icons">search</i>
-            <div class="ripple-container"></div>
-          </button>
-        </div>
-      </form>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" (click)="backToProfile()">Profile</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link"
-            href="javscript:void(0)"
-            id="navbarDropdownMenuLink"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <i class="material-icons" (click)="studentApply()">notifications</i>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link">
-            <i class="material-icons" (click)="ownPosts()"> Posts</i>
-          </a>
-        </li>
-      </ul>
-    </div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" (click)="studentApply()"
+          >Notifications <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="ownPosts()">Posts</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input
+        class="form-control mr-sm-2"
+        type="text"
+        placeholder="Search..."
+        name="search"
+        #search
+        aria-label="Search"
+      />
+      <button
+        class="btn btn-outline-success my-2 my-sm-0"
+        (click)="searchProfil(search.value)"
+        type="submit"
+      >
+        Search
+      </button>
+    </form>
   </div>
 </nav>
-
 <!--profile-->
 
 <div class="main-panel">
@@ -176,24 +153,24 @@
               <li class="about-items">
                 <i class="mdi mdi-account icon-sm"></i
                 ><span class="about-item-name">Name:</span
-                ><span class="about-item-detail">{{
-                  this.userData?.name
-                }}</span>
+                ><span class="about-item-detail"
+                  >{{ this.userData?.name }}</span
+                >
               </li>
               <li class="about-items">
                 <i class="mdi mdi-account icon-sm"></i
                 ><span class="about-item-name">Owner:</span
-                ><span class="about-item-detail">{{
-                  this.userData?.owner
-                }}</span>
+                ><span class="about-item-detail"
+                  >{{ this.userData?.owner }}</span
+                >
               </li>
 
               <li class="about-items">
                 <i class="mdi mdi-format-align-left icon-sm"></i
                 ><span class="about-item-name">About Us:</span
-                ><span class="about-item-detail">{{
-                  this.userData?.about
-                }}</span>
+                ><span class="about-item-detail"
+                  >{{ this.userData?.about }}</span
+                >
               </li>
 
               <li class="about-items">
@@ -214,9 +191,9 @@
               <li class="about-items">
                 <i class="mdi mdi-map-marker icon-sm"></i
                 ><span class="about-item-name">Address:</span
-                ><span class="about-item-detail">{{
-                  this.userData?.location
-                }}</span>
+                ><span class="about-item-detail"
+                  >{{ this.userData?.location }}</span
+                >
               </li>
               <li class="about-items">
                 <i class="mdi mdi-email-outline icon-sm"></i
